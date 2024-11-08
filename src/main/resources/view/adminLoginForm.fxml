@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #4d4845;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminLoginFormController">
    <children>
       <ImageView fitHeight="806.0" fitWidth="567.0" layoutX="-2.0" layoutY="-2.0">
@@ -20,11 +19,6 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#4a4b4d90" height="710.0" layoutX="640.0" layoutY="54.0" opacity="0.47" stroke="#757171" strokeType="INSIDE" width="497.0" />
-      <ImageView fitHeight="219.0" fitWidth="376.0" layoutX="701.0" layoutY="78.0">
-         <image>
-            <Image url="@../../../../../../Images/Culinary%20Academy.png" />
-         </image>
-      </ImageView>
       <Label layoutX="743.0" layoutY="323.0" prefHeight="53.0" prefWidth="305.0" text="WELCOME ADMIN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="35.0" />
@@ -44,5 +38,10 @@
       </JFXButton>
       <Hyperlink fx:id="hyperFP" layoutX="746.0" layoutY="605.0" onAction="#linkForgotPassword" text="Forgot Password" textFill="WHITE" />
       <Hyperlink fx:id="hyperSignUp" layoutX="958.0" layoutY="605.0" onAction="#linkSignUp" text="Sign up" textFill="WHITE" />
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="789.0" layoutY="100.0">
+         <image>
+            <Image url="@../assests/images/Culinary%20Academy-modified.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
