@@ -31,7 +31,7 @@
       </Label>
       <TextField fx:id="txtUserName" alignment="CENTER" layoutX="739.0" layoutY="466.0" prefHeight="45.0" prefWidth="287.0" promptText="Username" style="-fx-background-radius: 10;" />
       <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="739.0" layoutY="539.0" prefHeight="45.0" prefWidth="287.0" promptText="Password" style="-fx-background-radius: 10;" />
-      <JFXButton layoutX="746.0" layoutY="658.0" onAction="#btnLoginOnAction" prefHeight="45.0" prefWidth="279.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="LOGIN" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="746.0" layoutY="658.0" onAction="#btnLoginOnAction" prefHeight="45.0" prefWidth="279.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="LOGIN" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
