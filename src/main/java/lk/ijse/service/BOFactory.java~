@@ -1,0 +1,18 @@
+package lk.ijse.service;
+
+public class BOFactory {
+    private static BOFactory boFactory;
+
+    private BOFactory() {}
+
+    public static BOFactory getBoFactory() {
+        return (boFactory == null) ? (boFactory = new BOFactory()) : boFactory;
+    }
+
+    public enum BOTypes {
+        StudentBO,ProgramBO,UserBO;
+
+    }
+
+    public <T extends S
+}
