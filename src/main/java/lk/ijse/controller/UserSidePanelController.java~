@@ -1,0 +1,45 @@
+package view;
+
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.layout.Pane;
+import lk.ijse.util.Navigation;
+
+import java.io.IOException;
+
+public class UserSidePanelController {
+
+    @FXML
+    private JFXButton btnDashBoardUser;
+
+    @FXML
+    private JFXButton btnLogOutUser;
+
+    @FXML
+    private JFXButton btnRegistrationUser;
+
+    @FXML
+    private Pane pagingPane;
+
+
+    @FXML
+    void btnDashBoardUserOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane, "userHomeForm.fxml");
+
+
+    }
+
+    @FXML
+    void btnLogOutUserOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane, "mainForm.fxml");
+
+    }
+
+    @FXML
+    void btnRegistrationUserOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane, "userRegistrationForm.fxml");
+
+    }
+
+}

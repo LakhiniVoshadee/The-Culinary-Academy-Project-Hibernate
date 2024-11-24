@@ -3,7 +3,7 @@ package lk.ijse.controller;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
-public class RegistrationFormController {
+public class UserHomeFormController {
 
     @FXML
     private AnchorPane pagingPane;

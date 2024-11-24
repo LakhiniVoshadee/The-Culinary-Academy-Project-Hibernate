@@ -3,7 +3,6 @@ package lk.ijse.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.AnchorPane;
 import lk.ijse.util.Navigation;
 
 public class MainFormController {
@@ -26,7 +25,7 @@ public class MainFormController {
     @FXML
     void btnUserOnAction(ActionEvent event) {
         btnUser.getScene().getWindow().hide();
-        Navigation.changeStage("/view/userForm.fxml", "User Form");
+        Navigation.changeStage("/view/userLoginForm.fxml", "User Form");
 
     }
 

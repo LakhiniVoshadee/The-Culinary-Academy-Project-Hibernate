@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class adminSidePanelController implements Initializable {
+public class AdminSidePanelController implements Initializable {
 
     @FXML
     private JFXButton btnDashBoard;
@@ -36,7 +36,7 @@ public class adminSidePanelController implements Initializable {
 
     @FXML
     void btnDashBoardOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "homeForm.fxml");
+        Navigation.switchPaging(pagingPane, "adminHomeForm.fxml");
 
     }
 
@@ -49,23 +49,24 @@ public class adminSidePanelController implements Initializable {
 
     @FXML
     void btnProgramsOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "programForm.fxml");
+        Navigation.switchPaging(pagingPane, "adminProgramForm.fxml");
 
     }
 
     @FXML
     void btnRegistrationOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "registrationForm.fxml");
+        Navigation.switchPaging(pagingPane, "adminRegistrationForm.fxml");
 
     }
 
     @FXML
     void btnStudentsOnAction(ActionEvent event) throws IOException {
-   Navigation.switchPaging(pagingPane, "studentsForm.fxml");
+   Navigation.switchPaging(pagingPane, "adminStudentsForm.fxml");
     }
 
     @FXML
-    void btnUsersOnAction(ActionEvent event) {
+    void btnUsersOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane, "adminUserForm.fxml");
 
     }
 
@@ -73,7 +74,7 @@ public class adminSidePanelController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pagingPane.setVisible(true);
         try {
-            Navigation.switchPaging(pagingPane, "homeForm.fxml");
+            Navigation.switchPaging(pagingPane, "adminHomeForm.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

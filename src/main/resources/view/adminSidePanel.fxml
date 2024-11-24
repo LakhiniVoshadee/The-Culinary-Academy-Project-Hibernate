@@ -11,8 +11,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.adminSidePanelController">
+<AnchorPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminSidePanelController">
    <children>
+      <Pane fx:id="pagingPane" layoutX="242.0" prefHeight="801.0" prefWidth="959.0" />
       <VBox alignment="TOP_CENTER" prefHeight="801.0" prefWidth="242.0" spacing="60.0" style="-fx-background-color: #c5bfb9;">
          <children>
             <ImageView fitHeight="94.0" fitWidth="111.0">
@@ -148,6 +149,5 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane fx:id="pagingPane" layoutX="242.0" prefHeight="801.0" prefWidth="959.0" />
    </children>
 </AnchorPane>

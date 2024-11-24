@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import lk.ijse.util.Navigation;
 
-public class UserFormController {
+import java.io.IOException;
+
+public class UserLoginFormController {
 
     @FXML
     private Hyperlink hyperFP;
@@ -20,8 +23,11 @@ public class UserFormController {
     @FXML
     private TextField txtUserName;
 
+
+
     @FXML
-    void btnLoginOnAction(ActionEvent event) {
+    void btnLoginOnAction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("userSidePanel.fxml", event);
 
     }
 
