@@ -70,9 +70,9 @@ public class AdminStudentsFormController implements Initializable {
     private void clearFields() {
         stID.clear();
         stName.clear();
-        stEmail.clear();
-        stContact.clear();
         stAddress.clear();
+        stContact.clear();
+        stEmail.clear();
     }
 
     @FXML
@@ -82,16 +82,16 @@ public class AdminStudentsFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        if (stID.getText().isEmpty() || stName.getText().isEmpty() || stEmail.getText().isEmpty() || stContact.getText().isEmpty() || stAddress.getText().isEmpty()) {
+        if (stID.getText().isEmpty() || stName.getText().isEmpty() || stAddress.getText().isEmpty() || stContact.getText().isEmpty() || stEmail.getText().isEmpty()) {
             new Alert(Alert.AlertType.WARNING, "Please Fill All The Fields").show();
         }else {
             String id = stID.getText();
             String name = stName.getText();
-            String email = stEmail.getText();
-            String contact = stContact.getText();
             String address = stAddress.getText();
+            String contact = stContact.getText();
+            String email = stEmail.getText();
 
-            StudentDto studentDTO = new StudentDto(id, name, email, contact, address);
+            StudentDto studentDTO = new StudentDto(id, name, address, contact, email);
 
             boolean saved = studentBO.saveStudent(studentDTO);
             if (saved) {
@@ -147,11 +147,11 @@ public class AdminStudentsFormController implements Initializable {
     }
 
     private void setCellValuesFactory() {
-        colStID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colStID.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colStEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colStContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colStAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colStContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        colStEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
     }
 }
