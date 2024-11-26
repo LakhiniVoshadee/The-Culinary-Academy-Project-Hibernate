@@ -60,7 +60,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblProgram" layoutX="78.0" layoutY="492.0" prefHeight="269.0" prefWidth="979.0">
+      <TableView fx:id="tblProgram" layoutX="78.0" layoutY="492.0" onMouseClicked="#tableClick" prefHeight="269.0" prefWidth="979.0">
          <columns>
             <TableColumn fx:id="colProgramID" prefWidth="126.0" text="Program ID" />
             <TableColumn fx:id="colProgramName" prefWidth="306.0" text="Program Name" />

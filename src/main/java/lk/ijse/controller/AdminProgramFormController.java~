@@ -5,15 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ProgramDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.ProgramBO;
 import lk.ijse.tm.ProgramTM;
-import lk.ijse.tm.StudentTM;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -160,21 +161,6 @@ public class AdminProgramFormController implements Initializable {
         }catch (Exception e){
             throw new RuntimeException(e);
         }
-
-    }
-
-    @FXML
-    void tableClick(MouseEvent event) {
-        TablePosition pos = tblProgram.getSelectionModel().getSelectedCells().get(0);
-        int row = pos.getRow();
-        ObservableList<TableColumn<ProgramTM, ?>> columns = tblProgram.getColumns();
-
-        txtID.setText(columns.get(0).getCellData(row).toString());
-        txtProgramName.setText(columns.get(1).getCellData(row).toString());
-        txtDuration.setText(columns.get(2).getCellData(row).toString());
-        txtFee.setText(columns.get(3).getCellData(row).toString());
-
-
 
     }
 }
