@@ -37,7 +37,7 @@ public class SessionFactoryConfig {
                 .setProperties(properties)
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Program.class)
-                .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect")
+                .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect")
                 .buildSessionFactory();
 
     }

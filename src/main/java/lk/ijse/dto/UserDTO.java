@@ -16,11 +16,6 @@ public class UserDTO {
     private String email;
     private String address;
 
-    public UserDTO(String id,String name,String password){
-        this.id=id;
-        this.name=name;
-        this.password=password;
-    }
 
 
     public User toEntity(){

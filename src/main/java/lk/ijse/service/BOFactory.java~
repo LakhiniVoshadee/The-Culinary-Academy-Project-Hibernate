@@ -21,7 +21,7 @@ public class BOFactory {
            case StudentBO:
                return (T) new StudentBOImpl();
             case ProgramBO:
-                   return (T) new ProgramBOImpl()();
+                   return (T) new ProgramBOImpl();
             default:
                 return null;
         }

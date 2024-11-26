@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.StudentDto;
 import lk.ijse.service.BOFactory;
@@ -50,7 +51,7 @@ public class AdminStudentsFormController implements Initializable {
     private TableView<StudentTM> tblStudent;
 
 
-    
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllStudents();
@@ -168,4 +169,11 @@ public class AdminStudentsFormController implements Initializable {
         colStEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
     }
+
+    @FXML
+    void tableClick(MouseEvent event) {
+        
+
+    }
+
 }

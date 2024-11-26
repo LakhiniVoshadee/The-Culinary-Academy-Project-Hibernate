@@ -1,90 +1,27 @@
 package lk.ijse.service.custom.impl;
 
+
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dto.UserDTO;
-import lk.ijse.entity.User;
-import lk.ijse.repository.DAOFactory;
-import lk.ijse.repository.custom.UserDAO;
 import lk.ijse.service.custom.UserBO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class UserBOImpl implements UserBO {
 
-  UserDAO userDAO = DAOFactory.getDAO(DAOFactory.DAOTypes.UserDAO);
+
     @Override
-    public boolean deleteUser(UserDTO userDTO) {
+    public boolean saveUsers(UserDTO userDTO) {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
         Transaction transaction = session.beginTransaction();
-        try {
-            userDAO.setSession(session);
-            userDAO.delete(userDTO.toEntity());
-            transaction.commit();
-            session.close();
-            return true;
-        } catch (Exception e) {
-            transaction.rollback();
-            session.close();
-            e.printStackTrace();
-            return false;
-        }
-    }
 
-    @Override
-    public List<UserDTO> getAllUsers() throws SQLException, RuntimeException {
-
-        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
-        userDAO.setSession(session);
-        ArrayList<User> users = null;
-        users = userDAO.getAll();
-        ArrayList<UserDTO> userDtos = new ArrayList<>();
-        for (User user : users) {
-            userDtos.add(new UserDTO(
-                    user.getId(),
-                    user.getName(),
-                    user.getPassword(),
-                    user.getEmail(),
-                    user.getMobile(),
-                    user.getAddress()
-            ));
-        }
-        session.close();
-        return userDtos;
-    }
-
-    @Override
-    public boolean updateUser(UserDTO userDTO) {
-        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
-            userDAO.setSession(session);
-            userDAO.update(userDTO.toEntity());
-            transaction.commit();
-            session.close();
-            return true;
-        } catch (Exception e) {
-            transaction.rollback();
-            session.close();
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    @Override
-    public boolean saveUser(UserDTO userDTO) {
-        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
-        Transaction transaction = session.beginTransaction();
-        try {
+        try{
             userDAO.setSession(session);
             userDAO.save(userDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
-        } catch (Exception e) {
+        } catch (Exception e){
             transaction.rollback();
             session.close();
             e.printStackTrace();

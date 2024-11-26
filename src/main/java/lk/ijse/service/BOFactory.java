@@ -13,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BOTypes{
-       StudentBO,ProgramBO
+       StudentBO,ProgramBO,UserBO
     }
 
     public <T extends SuperBO>T getBO(BOFactory.BOTypes boTypes){
@@ -22,6 +22,8 @@ public class BOFactory {
                return (T) new StudentBOImpl();
             case ProgramBO:
                    return (T) new ProgramBOImpl();
+                   case UserBO:
+                       return (T) new UserBOImpl();
             default:
                 return null;
         }

@@ -58,7 +58,7 @@
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <TableView fx:id="tblStudent" layoutX="82.0" layoutY="498.0" prefHeight="269.0" prefWidth="962.0">
+      <TableView fx:id="tblStudent" layoutX="82.0" layoutY="498.0" onMouseClicked="#tableClick" prefHeight="269.0" prefWidth="962.0">
         <columns>
           <TableColumn fx:id="colStID" prefWidth="126.0" text="Student ID" />
           <TableColumn fx:id="colStName" prefWidth="180.0" text="Student Name" />
