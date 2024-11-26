@@ -75,34 +75,34 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="273.0" layoutY="414.0" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Save" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="273.0" layoutY="414.0" onAction="#btnSaveOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="469.0" layoutY="414.0" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="469.0" layoutY="414.0" onAction="#btnUpdateOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="667.0" layoutY="414.0" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="667.0" layoutY="414.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="847.0" layoutY="414.0" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Clear" textFill="WHITE">
+      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="847.0" layoutY="414.0" onAction="#btnClearOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="65.0" layoutY="500.0" prefHeight="252.0" prefWidth="1069.0">
+      <TableView fx:id="tblUser" layoutX="65.0" layoutY="500.0" prefHeight="252.0" prefWidth="1069.0">
         <columns>
-          <TableColumn prefWidth="121.0" text="User ID" />
-          <TableColumn prefWidth="156.0" text="User Name" />
-            <TableColumn prefWidth="156.0" text="User Password" />
-            <TableColumn prefWidth="195.0" text="User Mobile" />
-            <TableColumn prefWidth="232.0" text="User Email" />
-            <TableColumn prefWidth="208.0" text="User Address" />
+          <TableColumn fx:id="colUserId" prefWidth="121.0" text="User ID" />
+          <TableColumn fx:id="colUserName" prefWidth="156.0" text="User Name" />
+            <TableColumn fx:id="colPassword" prefWidth="156.0" text="User Password" />
+            <TableColumn fx:id="colMobile" prefWidth="195.0" text="User Mobile" />
+            <TableColumn fx:id="colEmail" prefWidth="232.0" text="User Email" />
+            <TableColumn fx:id="colAddress" prefWidth="208.0" text="User Address" />
         </columns>
       </TableView>
    </children>

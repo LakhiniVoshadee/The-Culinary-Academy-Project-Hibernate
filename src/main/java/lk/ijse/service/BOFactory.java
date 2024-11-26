@@ -6,29 +6,22 @@ import lk.ijse.service.custom.impl.UserBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
+    private BOFactory(){}
 
-    private BOFactory() {}
-
-    public static BOFactory getBoFactory() {
-        return (boFactory == null) ? (boFactory = new BOFactory()) : boFactory;
+    public static BOFactory getBoFactory(){
+        return (boFactory == null) ? boFactory=new BOFactory() : boFactory;
     }
 
-    public enum BOTypes {
-        StudentBO,ProgramBO,UserBO;
-
+    public enum BOTypes{
+       StudentBO
     }
 
-    public <T extends SuperBO> T getBO(BOFactory.BOTypes boTypes){
+    public <T extends SuperBO>T getBO(BOFactory.BOTypes boTypes){
         switch (boTypes){
-            case StudentBO:
-                return (T) new StudentBOImpl();
-            case ProgramBO:
-                return (T) new ProgramBOImpl();
-            case UserBO:
-                return (T) new UserBOImpl();
-
-
+           case StudentBO:
+               return (T) new StudentBOImpl();
         }
         return null;
     }
+
 }

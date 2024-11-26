@@ -12,11 +12,11 @@ import java.util.Properties;
 
 public class SessionFactoryConfig {
 
-    private static SessionFactoryConfig sessionFactoryConfig;
+   /* private static SessionFactoryConfig sessionFactoryConfig;
 
     private final SessionFactory sessionFactory;
 
-    private SessionFactoryConfig(){
+    private SessionFactoryConfig() {
         Properties properties = new Properties();
 
         try{
@@ -31,7 +31,6 @@ public class SessionFactoryConfig {
             e.printStackTrace();
         }
 
-
         sessionFactory = new Configuration()
                 .setProperties(properties)
                 .addAnnotatedClass(Student.class)
@@ -40,13 +39,10 @@ public class SessionFactoryConfig {
 
     }
 
-    public static SessionFactoryConfig getSessionFactoryConfig() {
+    public static SessionFactoryConfig getSessionFactoryConfig(){
         return (sessionFactoryConfig == null) ? sessionFactoryConfig = new SessionFactoryConfig() : sessionFactoryConfig;
     }
-
-    public Session getSession() {
-        return sessionFactory.openSession();
-    }
-
+    public Session getSession(){
+        return sessionFactory.openSession();}*/
     }
 

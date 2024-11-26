@@ -34,8 +34,4 @@ public class Student {
     @Column(name = "student_email")
     private String email;
 
-
-
-
-
 }
