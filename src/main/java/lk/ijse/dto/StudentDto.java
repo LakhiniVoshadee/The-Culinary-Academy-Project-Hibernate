@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentDto {
-    private String studentId;
+    private String id;
     private String name;
     private String address;
     private String contact;
@@ -19,7 +19,7 @@ public class StudentDto {
 
     public Student toEntity(){
         Student student = new Student();
-        student.setStudentId(this.studentId);
+        student.setId(this.id);
         student.setName(this.name);
         student.setAddress(this.address);
         student.setContact(this.contact);

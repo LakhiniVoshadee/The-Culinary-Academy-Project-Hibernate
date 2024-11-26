@@ -81,23 +81,4 @@ public class ProgramBOImpl implements ProgramBO {
             return false;
         }
     }
-
-    @Override
-    public boolean deleteProgram(ProgramDTO programDTO) throws Exception {
-        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        try {
-            programDAO.setSession(session);
-            programDAO.delete(programDTO.toEntity());
-            transaction.commit();
-            session.close();
-            return true;
-        } catch (Exception e) {
-            transaction.rollback();
-            session.close();
-            e.printStackTrace();
-            return false;
-        }
-    }
 }

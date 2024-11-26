@@ -8,7 +8,11 @@ import java.util.ArrayList;
 
 public interface StudentBO extends SuperBO {
 
-    boolean saveStudent(StudentDto studentDTO);
+    boolean saveStudent(StudentDto studentDTO) throws Exception;
 
     ArrayList<StudentDto> getAllStudents() throws SQLException;
+
+    boolean updateStudent(StudentDto studentDTO) throws Exception;
+
+    boolean deleteStudent(StudentDto studentDTO) throws Exception;
 }

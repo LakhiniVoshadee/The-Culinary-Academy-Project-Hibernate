@@ -17,14 +17,15 @@ public class StudentDAOImpl implements StudentDAO {
 
     }
 
+
     @Override
-    public boolean save(Object entity) throws SQLException, ClassNotFoundException {
+    public boolean save(Student entity) throws SQLException, ClassNotFoundException {
         session.save(entity);
         return false;
     }
 
 
-   
+
 
     @Override
     public ArrayList<Student> getAll() throws SQLException, ClassNotFoundException {
@@ -37,4 +38,12 @@ public class StudentDAOImpl implements StudentDAO {
             session.close();
         }
     }
+
+    @Override
+    public void update(Student entity) throws SQLException, ClassNotFoundException {
+        session.update(entity);
+
+    }
+
+
 }

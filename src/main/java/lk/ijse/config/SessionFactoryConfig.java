@@ -1,5 +1,6 @@
 package lk.ijse.config;
 
+import lk.ijse.entity.Program;
 import lk.ijse.entity.Student;
 import lk.ijse.entity.User;
 import org.hibernate.Session;
@@ -35,7 +36,8 @@ public class SessionFactoryConfig {
         sessionFactory = new Configuration()
                 .setProperties(properties)
                 .addAnnotatedClass(Student.class)
-                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Program.class)
+                .setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect")
                 .buildSessionFactory();
 
     }

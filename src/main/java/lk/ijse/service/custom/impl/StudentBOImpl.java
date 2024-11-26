@@ -5,7 +5,6 @@ import lk.ijse.dto.StudentDto;
 import lk.ijse.entity.Student;
 import lk.ijse.repository.DAOFactory;
 import lk.ijse.repository.custom.StudentDAO;
-import lk.ijse.service.SuperBO;
 import lk.ijse.service.custom.StudentBO;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -48,11 +47,14 @@ public class StudentBOImpl implements StudentBO {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        if (students == null) {
+            return new ArrayList<>();
+        }
 
         ArrayList<StudentDto> studentDTOS = new ArrayList<>();
-        for(Student student : students){
+        for (Student student : students) {
             studentDTOS.add(new StudentDto(
-                    student.getStudentId(),
+                    student.getId(),
                     student.getName(),
                     student.getAddress(),
                     student.getContact(),
@@ -61,5 +63,45 @@ public class StudentBOImpl implements StudentBO {
         }
         session.close();
         return studentDTOS;
+    }
+
+    @Override
+    public boolean updateStudent(StudentDto studentDTO) {
+        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            studentDAO.setSession(session);
+            studentDAO.update(studentDTO.toEntity());
+            transaction.commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    @Override
+    public boolean deleteStudent(StudentDto studentDTO)  {
+        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            studentDAO.setSession(session);
+            studentDAO.delete(studentDTO.toEntity());
+            transaction.commit();
+            session.close();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }

@@ -1,4 +1,7 @@
 package lk.ijse.repository.custom;
 
-public interface ProgramDAO {
+import lk.ijse.entity.Program;
+import lk.ijse.repository.CrudDAO;
+
+public interface ProgramDAO extends CrudDAO<Program,String> {
 }
