@@ -95,7 +95,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblUser" layoutX="65.0" layoutY="500.0" prefHeight="252.0" prefWidth="1069.0">
+      <TableView fx:id="tblUser" layoutX="65.0" layoutY="500.0" onMouseClicked="#tableClick" prefHeight="252.0" prefWidth="1069.0">
         <columns>
           <TableColumn fx:id="colUserId" prefWidth="121.0" text="User ID" />
           <TableColumn fx:id="colUserName" prefWidth="156.0" text="User Name" />

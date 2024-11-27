@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="580.0" layoutX="-1.0">
          <image>
-            <Image url="@../assests/images/front-view-people-cooking-indoors.jpg" />
+            <Image url="@../assests/images/images/front-view-people-cooking-indoors.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#4a4b4d90" height="710.0" layoutX="658.0" layoutY="51.0" opacity="0.47" stroke="#757171" strokeType="INSIDE" width="497.0" />

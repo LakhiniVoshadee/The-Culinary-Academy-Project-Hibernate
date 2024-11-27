@@ -43,6 +43,6 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void delete(User entity) throws SQLException, ClassNotFoundException {
-        session.delete(entity);
+
     }
 }

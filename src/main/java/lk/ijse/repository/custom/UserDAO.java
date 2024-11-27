@@ -1,5 +1,8 @@
 package lk.ijse.repository.custom;
 
-public interface UserDAO{
+import lk.ijse.entity.User;
+import lk.ijse.repository.CrudDAO;
+
+public interface UserDAO extends CrudDAO<User, String> {
 
 }

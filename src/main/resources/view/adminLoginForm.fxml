@@ -18,7 +18,7 @@
             <Image url="@../../../../../../../Images/female-cook-kitchen-cafe.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#4a4b4d90" height="710.0" layoutX="640.0" layoutY="54.0" opacity="0.47" stroke="#757171" strokeType="INSIDE" width="497.0" />
+      <Rectangle arcHeight="70.0" arcWidth="70.0" fill="#4a4b4d8f" height="710.0" layoutX="640.0" layoutY="54.0" opacity="0.47" stroke="#757171" strokeType="INSIDE" width="497.0" />
       <Label layoutX="743.0" layoutY="323.0" prefHeight="53.0" prefWidth="305.0" text="WELCOME ADMIN" textFill="WHITE">
          <font>
             <Font name="System Bold" size="35.0" />
