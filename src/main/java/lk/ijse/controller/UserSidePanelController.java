@@ -26,7 +26,7 @@ public class UserSidePanelController {
 
     @FXML
     void btnRegistrationOnAction(ActionEvent event) throws IOException {
-        Navigation.switchPaging(pagingPane, "userRegistrationForm.fxml");
+       // Navigation.switchPaging(pagingPane, "userRegistrationForm.fxml");
 
     }
 

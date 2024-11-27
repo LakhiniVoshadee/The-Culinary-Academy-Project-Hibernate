@@ -1,8 +1,10 @@
 package lk.ijse.repository.custom.impl;
 
+import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.entity.Admin;
 import lk.ijse.repository.custom.AdminDAO;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -44,4 +46,11 @@ public class AdminDAOImpl implements AdminDAO {
     public void delete(Admin entity) throws SQLException, ClassNotFoundException {
 
     }
+
+    @Override
+    public String getLastId() throws Exception {
+        return "";
+    }
+
+
 }

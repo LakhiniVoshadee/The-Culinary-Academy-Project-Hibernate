@@ -49,6 +49,11 @@ public class ProgramDAOImpl implements ProgramDAO {
     }
 
     @Override
+    public String getLastId() throws Exception {
+        return "";
+    }
+
+    @Override
     public int programCount() {
         String sql = "SELECT COUNT(P.id) FROM Program AS P";
         Query query = session.createQuery(sql);

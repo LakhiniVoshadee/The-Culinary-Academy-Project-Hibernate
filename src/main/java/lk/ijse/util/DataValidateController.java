@@ -7,7 +7,7 @@ public class DataValidateController {
 
 ///////////////////////////   STUDENT ////////////////////////////////////////
     public static boolean studentIdValidate(String studentId) {
-        String studentRegex = "^(S)[0-9]{3}$";
+        String studentRegex = "^STU-\\d{4}$";
         Pattern pattern = Pattern.compile(studentRegex);
         Matcher matcher = pattern.matcher(studentId);
         return matcher.matches();

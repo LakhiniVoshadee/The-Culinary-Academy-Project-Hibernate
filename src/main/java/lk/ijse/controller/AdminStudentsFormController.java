@@ -67,6 +67,15 @@ public class AdminStudentsFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllStudents();
         setCellValuesFactory();
+        generateStudentId();
+    }
+
+    private void generateStudentId() {
+        try {
+            stID.setText(studentBO.generateNextStudentId());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -114,7 +123,7 @@ public class AdminStudentsFormController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllStudents();
                 clearFields();
-               // generateNextUserId();
+                generateStudentId();
             }
         }
     }

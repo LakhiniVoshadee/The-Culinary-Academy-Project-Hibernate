@@ -6,4 +6,5 @@ import lk.ijse.repository.CrudDAO;
 public interface StudentDAO extends CrudDAO <Student,String> {
 
     int studentCount();
+    String generateNextId();
 }

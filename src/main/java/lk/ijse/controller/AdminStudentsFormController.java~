@@ -67,6 +67,15 @@ public class AdminStudentsFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllStudents();
         setCellValuesFactory();
+        generateStudentId();
+    }
+
+    private void generateStudentId() {
+        try {
+            stID.setText(studentBO.generateNextStudentId());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -150,12 +159,12 @@ public class AdminStudentsFormController implements Initializable {
             studentContactValidate.setText("");
         }
 
-        /*if (!DataValidateController.studentEmailValidate(studentEmailValidate.getText())) {
+        if (!DataValidateController.studentEmailValidate(stEmail.getText())) {
             studentEmailValidate.setText("Invalid Email!");
             isValid = false;
         } else {
             studentEmailValidate.setText("");
-        }*/
+        }
 
         return isValid;
     }

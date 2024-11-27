@@ -20,4 +20,5 @@ public interface CrudDAO<T,ID> extends SuperDAO {
     void delete(T entity) throws SQLException,ClassNotFoundException;
 
 
+    String getLastId() throws Exception;
 }

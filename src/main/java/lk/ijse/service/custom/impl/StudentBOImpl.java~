@@ -114,11 +114,11 @@ public class StudentBOImpl implements StudentBO {
 
     private String incrementId(String lastId) {
         if (lastId == null) {
-            return "STU-0001";
+            return "S";
         } else {
             int id = Integer.parseInt(lastId.split("-")[1]);
             id++;
-            return String.format("STU-%04d", id);
+            return String.format("S-%04d", id);
         }
 
     }
