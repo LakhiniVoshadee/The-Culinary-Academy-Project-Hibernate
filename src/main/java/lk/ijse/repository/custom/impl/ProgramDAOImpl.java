@@ -1,5 +1,6 @@
 package lk.ijse.repository.custom.impl;
 
+import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.entity.Program;
 import lk.ijse.repository.custom.ProgramDAO;
 import org.hibernate.Session;
@@ -50,7 +51,15 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public String getLastId() throws Exception {
-        return "";
+        try (Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession()) {
+            String sql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
+            Query<String> query = session.createQuery(sql, String.class);
+            query.setMaxResults(1);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -59,6 +68,14 @@ public class ProgramDAOImpl implements ProgramDAO {
         Query query = session.createQuery(sql);
         Long count = (Long) query.getSingleResult();
         return Math.toIntExact(count);
+    }
+
+    @Override
+    public String generateNextId() {
+        String sql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
+        Query idquery = session.createQuery(sql);
+        String programId = (String) idquery.setMaxResults(1).uniqueResult();
+        return programId;
     }
 
 }

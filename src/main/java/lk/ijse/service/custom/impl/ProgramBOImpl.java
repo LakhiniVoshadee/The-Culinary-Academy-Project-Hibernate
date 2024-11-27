@@ -101,4 +101,24 @@ public class ProgramBOImpl implements ProgramBO {
             return false;
         }
     }
+
+    @Override
+    public String generateNextProgramId() throws Exception {
+
+        String lastId = programDAO.getLastId();
+        return incrementId(lastId);
+
+    }
+
+    private String incrementId(String lastId) {
+        if (lastId == null) {
+            return "CAl-0001";
+        } else {
+            int id = Integer.parseInt(lastId.split("-")[1]);
+            id++;
+            return String.format("CAl-%04d", id);
+        }
+
+    }
+
 }

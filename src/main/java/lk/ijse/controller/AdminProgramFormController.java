@@ -81,7 +81,16 @@ public class AdminProgramFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllPrograms();
         setCellValuesFactory();
+        generateProgramId();
 
+    }
+
+    private void generateProgramId() {
+        try {
+            txtID.setText(programBO.generateNextProgramId());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
