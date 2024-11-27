@@ -49,7 +49,7 @@ public class DataValidateController {
 
 
     public static boolean programIdValidate(String programId) {
-        String programRegex = "^(P)[0-9]{3}$";
+        String programRegex = "^(CA1)[0-9]{3}$";
         Pattern pattern = Pattern.compile(programRegex);
         Matcher matcher = pattern.matcher(programId);
         return matcher.matches();
@@ -72,7 +72,7 @@ public class DataValidateController {
     }
 
     public static boolean programDurationValidate(String programDuration) {
-        String programRegex =  "^(\\d+)(?:\\.?\\d{0,2})?$";;
+        String programRegex =  "^(\\d+)(?:\\.?\\d{0,2})?$";
         Pattern pattern = Pattern.compile(programRegex);
         Matcher matcher = pattern.matcher(programDuration);
         return matcher.matches();
@@ -80,7 +80,7 @@ public class DataValidateController {
     }
 
     public static boolean programFeeValidate(String programFee) {
-        String programRegex = "^\\d{1,3}(,\\d{3})*(\\.\\d{1,2})?$\n";
+        String programRegex = "^(\\d+\\.?\\d{0,2})$";
         Pattern pattern = Pattern.compile(programRegex);
         Matcher matcher = pattern.matcher(programFee);
         return matcher.matches();

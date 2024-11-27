@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -31,4 +33,16 @@ public class Program {
 
     @Column(name = "fee")
     private String fee;
+
+
+  /*  @ManyToOne
+    @JoinColumn(name = "id")
+    private Admin admin;*/
+
+   /* @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "program"
+    )
+    private List<TransactionDetail> transactionDetails = new ArrayList<>();*/
 }

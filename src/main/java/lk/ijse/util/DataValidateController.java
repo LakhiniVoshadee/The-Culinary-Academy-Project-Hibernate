@@ -49,7 +49,7 @@ public class DataValidateController {
 
 
     public static boolean programIdValidate(String programId) {
-        String programRegex = "^(P)[0-9]{3}$";
+        String programRegex = "^(CAl)[0-9]{3}$";
         Pattern pattern = Pattern.compile(programRegex);
         Matcher matcher = pattern.matcher(programId);
         return matcher.matches();

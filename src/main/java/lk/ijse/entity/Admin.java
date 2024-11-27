@@ -31,25 +31,11 @@ public class Admin {
     private String password;
 
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "admin"
-    )
-    private List<Student> students = new ArrayList<>();
+   /*@OneToMany(
+           cascade = CascadeType.ALL,
+           fetch = FetchType.LAZY,
+           mappedBy = "admin"
+   )
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "admin"
-    )
-    private List<Program> programs = new ArrayList<>();
-
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            mappedBy = "admin"
-    )
-
-    private List<User> users = new ArrayList<>();
+    private List<Program> programs = new ArrayList<>();*/
 }
