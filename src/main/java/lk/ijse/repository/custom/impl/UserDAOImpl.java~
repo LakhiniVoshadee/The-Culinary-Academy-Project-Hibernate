@@ -48,6 +48,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public String getLastId() throws Exception {
+        return "";
+    }
+
+    @Override
     public int userCount() {
         String sql = "SELECT COUNT(U.id) FROM User AS U";
         Query query = session.createQuery(sql);

@@ -93,7 +93,7 @@ public class DataValidateController {
     ////////////////////////// USER ///////////////////////////////
 
     public static boolean userIdValidate(String userId) {
-        String userRegex = "^(U)[0-9]{3}$";
+        String userRegex = "^USR-\\d{4}$";
         Pattern pattern = Pattern.compile(userRegex);
         Matcher matcher = pattern.matcher(userId);
         return matcher.matches();

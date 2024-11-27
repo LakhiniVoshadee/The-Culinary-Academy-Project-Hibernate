@@ -103,4 +103,24 @@ public class UserBOImpl implements UserBO {
         }
 
     }
-}
+
+    @Override
+    public String generateNextUserId() throws Exception {
+
+        String lastId = userDAO.getLastId();
+        return incrementId(lastId);
+    }
+
+    private String incrementId(String lastId) {
+
+        if (lastId == null) {
+            return "USR-0001";
+        } else {
+            int id = Integer.parseInt(lastId.split("-")[1]);
+            id++;
+            return String.format("USR-%04d", id);
+        }
+
+    }
+    }
+

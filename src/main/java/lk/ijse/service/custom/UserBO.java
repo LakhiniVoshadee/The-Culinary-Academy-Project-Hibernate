@@ -17,5 +17,7 @@ public interface UserBO extends SuperBO {
     boolean updateUsers(UserDTO userDTO);
 
     boolean deleteUsers(UserDTO userDTO);
+
+    String generateNextUserId() throws Exception;
 }
 
