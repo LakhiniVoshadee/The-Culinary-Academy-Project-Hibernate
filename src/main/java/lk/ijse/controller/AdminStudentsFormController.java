@@ -13,6 +13,7 @@ import lk.ijse.dto.StudentDto;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.StudentBO;
 import lk.ijse.tm.StudentTM;
+import lk.ijse.util.DataValidateController;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,6 +46,21 @@ public class AdminStudentsFormController implements Initializable {
     private TextField stName;
     @FXML
     private TableView<StudentTM> tblStudent;
+
+    @FXML
+    private Label studentAddressValidate;
+
+    @FXML
+    private Label studentContactValidate;
+
+    @FXML
+    private Label studentEmailValidate;
+
+    @FXML
+    private Label studentIdValidate;
+
+    @FXML
+    private Label studentNameValidate;
 
 
     @Override
@@ -96,20 +112,57 @@ public class AdminStudentsFormController implements Initializable {
 
             StudentDto studentDTO = new StudentDto(id, name, address, contact, email);
 
-            boolean saved = studentBO.saveStudent(studentDTO);
+            /*boolean saved = studentBO.saveStudent(studentDTO);
             if (saved) {
                 clearFields();
                 new Alert(Alert.AlertType.CONFIRMATION, "Save Successfully").show();
                 loadAllStudents();
-            }
+            }*/
 
 
             //////////////// VALIDATION ///////////////
 
+            if (DataValidateController.studentIdValidate(stID.getText())) {
+                studentIdValidate.setText("");
+
+                if (DataValidateController.studentNameValidate(stName.getText())) {
+                    studentNameValidate.setText("");
+
+                    if (DataValidateController.studentAddressValidate(stAddress.getText())) {
+                        studentAddressValidate.setText("");
+
+                        if (DataValidateController.studentContactValidate(stContact.getText())) {
+                            studentContactValidate.setText("");
+
+                            if (DataValidateController.studentEmailValidate(stEmail.getText())) {
+                                studentEmailValidate.setText("");
+                                boolean saved = studentBO.saveStudent(studentDTO);
+                                if (saved) {
+                                    new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully!").show();
+                                    loadAllStudents();
+                                }
+                            } else {
+                                studentEmailValidate.setText("Invalid Email!");
+                            }
+                        } else {
+                            studentContactValidate.setText("Invalid Contact!");
+                        }
+                    } else {
+                        studentAddressValidate.setText("Invalid Address!");
+                    }
+                } else {
+                    studentNameValidate.setText("Invalid Name!");
+                }
+            } else {
+                studentIdValidate.setText("Invalid ID!");
+            }
+
+            }
+
 
         }
 
-    }
+
 
     private void loadAllStudents() {
         ObservableList<StudentTM> obList = FXCollections.observableArrayList();
