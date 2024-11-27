@@ -54,5 +54,7 @@
             </Label>
          </children>
       </AnchorPane>
+      <Label fx:id="lblTime" layoutX="347.0" layoutY="576.0" prefHeight="103.0" prefWidth="234.0" />
+      <Label fx:id="lblDate" layoutX="627.0" layoutY="576.0" prefHeight="103.0" prefWidth="234.0" />
    </children>
 </AnchorPane>
