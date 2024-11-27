@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,7 +32,14 @@ public class AdminLoginFormController {
 
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("adminSidePanel.fxml", event);
+       // Navigation.switchNavigation("adminSidePanel.fxml", event);
+        String userName = txtUserName.getText();
+        String password = txtPassword.getText();
+        if (userName.equals("admin") && password.equals("admin")) {
+            Navigation.switchNavigation("adminSidePanel.fxml", event);
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Invalid User Name or Password").show();
+        }
 
 
     }
@@ -42,7 +50,8 @@ public class AdminLoginFormController {
     }
 
     @FXML
-    void linkSignUp(ActionEvent event) {
+    void linkSignUp(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("adminSignUpForm.fxml", event);
 
 
     }

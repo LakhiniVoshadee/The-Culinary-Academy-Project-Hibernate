@@ -10,6 +10,7 @@ import lk.ijse.util.Navigation;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -46,8 +47,8 @@ public class AdminSignUpFormController {
     }
 
     @FXML
-    void btnSignUpOnAction(ActionEvent event) {
-        Navigation.switchNavigation("adminLoginForm.fxml", event);
+    void btnSignUpOnAction(ActionEvent event) throws IOException {
+        Navigation.switchNavigation("adminSignUpForm.fxml", event);
 
     }
 }

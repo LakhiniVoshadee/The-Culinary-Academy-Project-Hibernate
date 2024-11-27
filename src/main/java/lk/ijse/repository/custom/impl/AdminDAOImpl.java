@@ -6,6 +6,7 @@ import lk.ijse.repository.custom.AdminDAO;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,4 +54,10 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
 
+    @Override
+    public ResultSet verifyAdmin(String userName, String password) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = (ResultSet) session.createNativeQuery("SELECT password FROM Admin WHERE userName = ?", Admin.class).getResultList();
+        return resultSet;
+
+    }
 }
