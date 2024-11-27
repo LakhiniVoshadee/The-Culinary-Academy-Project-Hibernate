@@ -80,7 +80,7 @@ public class DataValidateController {
     }
 
     public static boolean programFeeValidate(String programFee) {
-        String programRegex = "^([0-9]+)\\s+years?\\s+([0-9]|1[0-1])\\s+months?$\n";
+        String programRegex = "^\\d{1,3}(,\\d{3})*(\\.\\d{1,2})?$\n";
         Pattern pattern = Pattern.compile(programRegex);
         Matcher matcher = pattern.matcher(programFee);
         return matcher.matches();
@@ -88,7 +88,52 @@ public class DataValidateController {
     }
 
 
-    ////////////////////////// PROGRAM ///////////////////////////////
 
 
+    ////////////////////////// USER ///////////////////////////////
+
+    public static boolean userIdValidate(String userId) {
+        String userRegex = "^(U)[0-9]{3}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userId);
+        return matcher.matches();
+    }
+
+
+    public static boolean userNameValidate(String userName) {
+        String userRegex = "^[A-z\\s]{4,20}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userName);
+        return matcher.matches();
+
+    }
+
+    public static boolean userPasswordValidate(String text) {
+
+
+    }
+
+    public static boolean userEmailValidate(String userEmail) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(userEmail);
+        return matcher.matches();
+
+    }
+
+    public static boolean userMobileValidate(String userMobile) {
+        String userRegex = "^(?:7|0|(?:\\\\\\\\+94))[0-9]{9,10}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userMobile);
+        return matcher.matches();
+
+    }
+
+    public static boolean userAddressValidate(String userAddress) {
+        String userRegex = "[A-z @ 0-9]{4,20}";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userAddress);
+        return matcher.matches();
+
+    }
 }

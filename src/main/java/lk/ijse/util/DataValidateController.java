@@ -88,7 +88,55 @@ public class DataValidateController {
     }
 
 
-    ////////////////////////// PROGRAM ///////////////////////////////
 
 
+    ////////////////////////// USER ///////////////////////////////
+
+    public static boolean userIdValidate(String userId) {
+        String userRegex = "^(U)[0-9]{3}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userId);
+        return matcher.matches();
+    }
+
+
+    public static boolean userNameValidate(String userName) {
+        String userRegex = "^[A-z\\s]{4,20}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userName);
+        return matcher.matches();
+
+    }
+
+    public static boolean userPasswordValidate(String password) {
+
+        String userRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
+    public static boolean userEmailValidate(String userEmail) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(userEmail);
+        return matcher.matches();
+
+    }
+
+    public static boolean userMobileValidate(String userMobile) {
+        String userRegex = "^(?:7|0|(?:\\\\\\\\+94))[0-9]{9,10}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userMobile);
+        return matcher.matches();
+
+    }
+
+    public static boolean userAddressValidate(String userAddress) {
+        String userRegex = "[A-z @ 0-9]{4,20}";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(userAddress);
+        return matcher.matches();
+
+    }
 }

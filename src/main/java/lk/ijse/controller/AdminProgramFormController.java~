@@ -145,28 +145,28 @@ public class AdminProgramFormController implements Initializable {
         }
 
         if (!DataValidateController.programNameValidate(txtProgramName.getText())) {
-              lblProgramNameValidate.setText("Invalid Program Name!");
+              lblProgramNameValidate.setText("Invalid Student Name!");
             isValid = false;
         } else {
             lblProgramNameValidate.setText("");
         }
 
         if (!DataValidateController.programSeatsValidate(txtSeats.getText())) {
-            lblProgramSeatsValidate.setText("Invalid Seats Count!");
+            lblProgramSeatsValidate.setText("Invalid Address!");
             isValid = false;
         } else {
             lblProgramSeatsValidate.setText("");
         }
 
         if (!DataValidateController.programDurationValidate(txtDuration.getText())) {
-          lblDurationValidate.setText("Invalid Duration!");
+          lblDurationValidate.setText("Invalid Contact!");
             isValid = false;
         } else {
             lblDurationValidate.setText("");
         }
 
         if (!DataValidateController.programFeeValidate(txtFee.getText())) {
-            lblFeeValidate.setText("Invalid Fee!");
+            lblFeeValidate.setText("Invalid Email!");
             isValid = false;
         } else {
             lblFeeValidate.setText("");

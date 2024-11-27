@@ -9,10 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.dto.StudentDto;
 import lk.ijse.dto.UserDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.UserBO;
 import lk.ijse.tm.UserTM;
+import lk.ijse.util.DataValidateController;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -52,6 +54,25 @@ public class AdminUserFormController implements Initializable {
     private TextField userPassword;
 
     @FXML
+    private Label lblAddressValidate;
+
+    @FXML
+    private Label lblEmailValidate;
+
+    @FXML
+    private Label lblIdValidate;
+
+    @FXML
+    private Label lblMobileValidate;
+
+    @FXML
+    private Label lblNameValidate;
+
+    @FXML
+    private Label lblPasswordValidate;
+
+
+    @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
         new Alert(Alert.AlertType.CONFIRMATION, "Clear Successfully").show();
@@ -80,28 +101,74 @@ public class AdminUserFormController implements Initializable {
     }
 
     @FXML
-    void btnSaveOnAction(ActionEvent event) {
-        if (userID.getText().isEmpty() || userName.getText().isEmpty() || userPassword.getText().isEmpty() || userEmail.getText().isEmpty() || userMobile.getText().isEmpty() || userAddress.getText().isEmpty()) {
-            new Alert(Alert.AlertType.ERROR, "Please Fill All Empty Fileds Before Add New User !").show();
-        } else {
+    void btnSaveOnAction(ActionEvent event) throws Exception {
+        if (validateInputFields()) {
             String id = userID.getText();
             String name = userName.getText();
             String password = userPassword.getText();
-            String mobile = userEmail.getText();
-            String email = userMobile.getText();
+            String email = userEmail.getText();
+            String mobile = userMobile.getText();
             String address = userAddress.getText();
 
-
-            UserDTO userDTO = new UserDTO(id, name, password, mobile, email, address);
+            UserDTO userDTO = new UserDTO(id, name, password, email, mobile, address);
             boolean saved = userBO.saveUsers(userDTO);
             if (saved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllUsers();
+                clearFields();
+                // generateNextUserId();
             }
         }
-
     }
 
+    private boolean validateInputFields() {
+        boolean isValid = true;
+
+        if (!DataValidateController.userIdValidate(userID.getText())) {
+            lblIdValidate.setText("Invalid User ID!");
+            isValid = false;
+        } else {
+            lblIdValidate.setText("");
+        }
+
+        if (!DataValidateController.userNameValidate(userName.getText())) {
+            lblNameValidate.setText("Invalid User Name!");
+            isValid = false;
+        } else {
+            lblNameValidate.setText("");
+        }
+
+        if (!DataValidateController.userPasswordValidate(userPassword.getText())) {
+            lblPasswordValidate.setText("Invalid Password!");
+            isValid = false;
+        } else {
+            lblPasswordValidate.setText("");
+        }
+
+        if (!DataValidateController.userEmailValidate(userEmail.getText())) {
+            lblEmailValidate.setText("Invalid Email!");
+            isValid = false;
+        } else {
+            lblEmailValidate.setText("");
+        }
+
+        if (!DataValidateController.userMobileValidate(userMobile.getText())) {
+            lblMobileValidate.setText("Invalid Mobile!");
+            isValid = false;
+        } else {
+            lblMobileValidate.setText("");
+        }
+
+        if (!DataValidateController.userAddressValidate(userAddress.getText())) {
+            lblAddressValidate.setText("Invalid Address!");
+            isValid = false;
+        } else {
+            lblAddressValidate.setText("");
+        }
+
+
+        return isValid;
+    }
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         String id = userID.getText();

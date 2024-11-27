@@ -101,66 +101,64 @@ public class AdminStudentsFormController implements Initializable {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
-        if (stID.getText().isEmpty() || stName.getText().isEmpty() || stAddress.getText().isEmpty() || stContact.getText().isEmpty() || stEmail.getText().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING, "Please Fill All The Fields").show();
-        } else {
+        if (validateInputFields()) {
             String id = stID.getText();
             String name = stName.getText();
             String address = stAddress.getText();
-            String contact = stContact.getText();
+            String mobile = stContact.getText();
             String email = stEmail.getText();
 
-            StudentDto studentDTO = new StudentDto(id, name, address, contact, email);
-
-            /*boolean saved = studentBO.saveStudent(studentDTO);
+            StudentDto studentDTO = new StudentDto(id, name, address, mobile, email);
+            boolean saved = studentBO.saveStudent(studentDTO);
             if (saved) {
-                clearFields();
-                new Alert(Alert.AlertType.CONFIRMATION, "Save Successfully").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 loadAllStudents();
-            }*/
-
-
-            //////////////// VALIDATION ///////////////
-
-            if (DataValidateController.studentIdValidate(stID.getText())) {
-                studentIdValidate.setText("");
-
-                if (DataValidateController.studentNameValidate(stName.getText())) {
-                    studentNameValidate.setText("");
-
-                    if (DataValidateController.studentAddressValidate(stAddress.getText())) {
-                        studentAddressValidate.setText("");
-
-                        if (DataValidateController.studentContactValidate(stContact.getText())) {
-                            studentContactValidate.setText("");
-
-                            if (DataValidateController.studentEmailValidate(stEmail.getText())) {
-                                studentEmailValidate.setText("");
-                                boolean saved = studentBO.saveStudent(studentDTO);
-                                if (saved) {
-                                    new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully!").show();
-                                    loadAllStudents();
-                                }
-                            } else {
-                                studentEmailValidate.setText("Invalid Email!");
-                            }
-                        } else {
-                            studentContactValidate.setText("Invalid Contact!");
-                        }
-                    } else {
-                        studentAddressValidate.setText("Invalid Address!");
-                    }
-                } else {
-                    studentNameValidate.setText("Invalid Name!");
-                }
-            } else {
-                studentIdValidate.setText("Invalid ID!");
+                clearFields();
+               // generateNextUserId();
             }
-
-            }
-
-
         }
+    }
+
+    private boolean validateInputFields() {
+        boolean isValid = true;
+
+        if (!DataValidateController.studentIdValidate(stID.getText())) {
+            studentIdValidate.setText("Invalid Student ID!");
+            isValid = false;
+        } else {
+            studentIdValidate.setText("");
+        }
+
+        if (!DataValidateController.studentNameValidate(stName.getText())) {
+            studentNameValidate.setText("Invalid Student Name!");
+            isValid = false;
+        } else {
+            studentNameValidate.setText("");
+        }
+
+        if (!DataValidateController.studentAddressValidate(stAddress.getText())) {
+            studentAddressValidate.setText("Invalid Address!");
+            isValid = false;
+        } else {
+            studentAddressValidate.setText("");
+        }
+
+        if (!DataValidateController.studentContactValidate(stContact.getText())) {
+            studentContactValidate.setText("Invalid Contact!");
+            isValid = false;
+        } else {
+            studentContactValidate.setText("");
+        }
+
+        if (!DataValidateController.studentEmailValidate(stEmail.getText())) {
+            studentEmailValidate.setText("Invalid Email!");
+            isValid = false;
+        } else {
+            studentEmailValidate.setText("");
+        }
+
+        return isValid;
+    }
 
 
 

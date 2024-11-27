@@ -39,7 +39,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtProgramName" layoutX="59.0" layoutY="269.0" prefHeight="41.0" prefWidth="295.0" promptText="Program Name" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;" />
+      <TextField fx:id="txtProgramName" layoutX="59.0" layoutY="269.0" prefHeight="41.0" prefWidth="295.0" promptText="Program Name" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <TextField fx:id="txtFee" layoutX="59.0" layoutY="581.0" prefHeight="41.0" prefWidth="295.0" promptText="Fee" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;" text="Rs.  ">
          <font>
             <Font name="System Bold" size="11.0" />
@@ -89,13 +92,19 @@
             <Image url="@../assests/images/icons/refresh.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtID" layoutX="62.0" layoutY="155.0" prefHeight="41.0" prefWidth="289.0" promptText="Program ID" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;" />
+      <TextField fx:id="txtID" layoutX="62.0" layoutY="155.0" prefHeight="41.0" prefWidth="289.0" promptText="Program ID" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <Label layoutX="62.0" layoutY="334.0" prefHeight="31.0" prefWidth="191.0" text="Total Seats:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSeats" layoutX="59.0" layoutY="375.0" prefHeight="41.0" prefWidth="295.0" promptText="Total Seats" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;" />
+      <TextField fx:id="txtSeats" layoutX="59.0" layoutY="375.0" prefHeight="41.0" prefWidth="295.0" promptText="Total Seats" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <Label fx:id="lblProgramIdValidate" layoutX="68.0" layoutY="196.0" prefHeight="25.0" prefWidth="280.0" textFill="RED" />
       <Label fx:id="lblProgramNameValidate" layoutX="68.0" layoutY="310.0" prefHeight="25.0" prefWidth="280.0" textFill="RED" />
       <Label fx:id="lblProgramSeatsValidate" layoutX="68.0" layoutY="416.0" prefHeight="25.0" prefWidth="280.0" textFill="RED" />
