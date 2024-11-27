@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
@@ -23,6 +24,10 @@ public class UserLoginFormController {
     @FXML
     private TextField txtUserName;
 
+    @FXML
+    private JFXButton btnLeftBack;
+
+
 
 
     @FXML
@@ -39,6 +44,12 @@ public class UserLoginFormController {
     @FXML
     void linkSignUp(ActionEvent event) {
 
+    }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) {
+        btnLeftBack.getScene().getWindow().hide();
+        Navigation.changeStage("/view/mainForm.fxml","MAIN FORM");
     }
 
 }

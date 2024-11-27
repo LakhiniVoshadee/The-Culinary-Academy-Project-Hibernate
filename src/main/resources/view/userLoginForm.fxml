@@ -43,5 +43,14 @@
       </JFXButton>
       <Hyperlink fx:id="hyperFP" layoutX="756.0" layoutY="615.0" onAction="#linkForgotPassword" text="Forgot Password" textFill="WHITE" />
       <Hyperlink fx:id="hyperSignUp" layoutX="968.0" layoutY="615.0" onAction="#linkSignUp" text="Sign up" textFill="WHITE" />
+      <JFXButton fx:id="btnLeftBack" buttonType="RAISED" layoutX="678.0" layoutY="73.0" onAction="#btnBackOnAction" prefHeight="94.0" prefWidth="97.0">
+         <graphic>
+            <ImageView fx:id="btnBackOnAction" fitHeight="65.0" fitWidth="70.0">
+               <image>
+                  <Image url="@../assests/images/icons/left-arrow-in-circular-button-black-symbol.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

@@ -72,7 +72,7 @@ public class DataValidateController {
     }
 
     public static boolean programDurationValidate(String programDuration) {
-        String programRegex = "^([0-9]+)\\s+years?\\s+([0-9]|1[0-1])\\s+months?$\n";
+        String programRegex =  "^(\\d+)(?:\\.?\\d{0,2})?$";;
         Pattern pattern = Pattern.compile(programRegex);
         Matcher matcher = pattern.matcher(programDuration);
         return matcher.matches();
@@ -108,9 +108,12 @@ public class DataValidateController {
 
     }
 
-    public static boolean userPasswordValidate(String text) {
+    public static boolean userPasswordValidate(String password) {
 
-
+        String userRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
+        Pattern pattern = Pattern.compile(userRegex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
     }
 
     public static boolean userEmailValidate(String userEmail) {
