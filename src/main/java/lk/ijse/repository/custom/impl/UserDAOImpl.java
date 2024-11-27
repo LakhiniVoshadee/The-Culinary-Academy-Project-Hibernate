@@ -4,6 +4,7 @@ package lk.ijse.repository.custom.impl;
 import lk.ijse.entity.User;
 import lk.ijse.repository.custom.UserDAO;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -44,5 +45,13 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void delete(User entity) throws SQLException, ClassNotFoundException {
         session.delete(entity);
+    }
+
+    @Override
+    public int userCount() {
+        String sql = "SELECT COUNT(U.id) FROM User AS U";
+        Query query = session.createQuery(sql);
+        Long count = (Long) query.getSingleResult();
+        return Math.toIntExact(count);
     }
 }

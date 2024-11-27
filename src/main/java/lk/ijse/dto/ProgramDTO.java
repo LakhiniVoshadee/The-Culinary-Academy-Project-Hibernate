@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class ProgramDTO {
     private String id;
     private String name;
+    private String seats;
     private String duration;
     private String fee;
 
@@ -19,6 +20,7 @@ public class ProgramDTO {
         Program program = new Program();
         program.setId(this.id);
         program.setName(this.name);
+        program.setSeats(this.seats);
         program.setDuration(this.duration);
         program.setFee(this.fee);
         return program;

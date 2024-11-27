@@ -22,7 +22,6 @@ public class DAOFactory {
                     return (T) new ProgramDAOImpl();
                     case UserDAO:
                         return (T) new UserDAOImpl();
-
             default:
                 return null;
         }

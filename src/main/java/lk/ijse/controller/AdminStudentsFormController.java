@@ -13,7 +13,6 @@ import lk.ijse.dto.StudentDto;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.StudentBO;
 import lk.ijse.tm.StudentTM;
-import lombok.SneakyThrows;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -48,7 +47,6 @@ public class AdminStudentsFormController implements Initializable {
     private TableView<StudentTM> tblStudent;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllStudents();
@@ -73,15 +71,15 @@ public class AdminStudentsFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws Exception {
-         String id = stID.getText();
-         StudentDto studentDTO = new StudentDto();
-         studentDTO.setId(id);
-         boolean deleted = studentBO.deleteStudent(studentDTO);
-         if (deleted) {
-             clearFields();
-             new Alert(Alert.AlertType.CONFIRMATION, "Delete Successfully").show();
-             loadAllStudents();
-         }
+        String id = stID.getText();
+        StudentDto studentDTO = new StudentDto();
+        studentDTO.setId(id);
+        boolean deleted = studentBO.deleteStudent(studentDTO);
+        if (deleted) {
+            clearFields();
+            new Alert(Alert.AlertType.CONFIRMATION, "Delete Successfully").show();
+            loadAllStudents();
+        }
 
     }
 
@@ -152,7 +150,7 @@ public class AdminStudentsFormController implements Initializable {
         if (updated) {
             System.out.println("Update Successfully");
             new Alert(Alert.AlertType.CONFIRMATION, "Update Successfully").show();
-           loadAllStudents();
+            loadAllStudents();
         }
 
     }

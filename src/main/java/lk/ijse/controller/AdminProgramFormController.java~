@@ -5,11 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ProgramDTO;
 import lk.ijse.service.BOFactory;
@@ -37,6 +35,10 @@ public class AdminProgramFormController implements Initializable {
     private TableColumn<?, ?> colProgramName;
 
     @FXML
+    private TableColumn<?, ?> colSeats;
+
+
+    @FXML
     private AnchorPane pagingPane;
 
     @FXML
@@ -62,11 +64,10 @@ public class AdminProgramFormController implements Initializable {
     }
 
 
-
     @FXML
     void btnClearOnAction(ActionEvent event) {
         clearFields();
-        new Alert(Alert.AlertType.CONFIRMATION,"Clear Successfully").show();
+        new Alert(Alert.AlertType.CONFIRMATION, "Clear Successfully").show();
 
     }
 
@@ -94,18 +95,18 @@ public class AdminProgramFormController implements Initializable {
     @FXML
     void btnSaveOnAction(ActionEvent event) throws Exception {
         if (txtID.getText().isEmpty() || txtProgramName.getText().isEmpty() || txtDuration.getText().isEmpty() || txtFee.getText().isEmpty()) {
-            new Alert(Alert.AlertType.WARNING,"Please Fill All The Fields").show();
-        }else {
+            new Alert(Alert.AlertType.WARNING, "Please Fill All The Fields").show();
+        } else {
             String id = txtID.getText();
             String name = txtProgramName.getText();
             String duration = txtDuration.getText();
             String fee = txtFee.getText();
 
-            ProgramDTO programDTO = new ProgramDTO(id,name,duration,fee);
+            ProgramDTO programDTO = new ProgramDTO(id, name, duration, fee);
             boolean saved = programBO.saveProgram(programDTO);
             if (saved) {
                 clearFields();
-                new Alert(Alert.AlertType.CONFIRMATION,"Save Successfully").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Save Successfully").show();
                 loadAllPrograms();
             }
         }
@@ -120,7 +121,7 @@ public class AdminProgramFormController implements Initializable {
         String fee = txtFee.getText();
 
 
-        ProgramDTO programDTO = new ProgramDTO(id, name,duration,fee);
+        ProgramDTO programDTO = new ProgramDTO(id, name, duration, fee);
         boolean updated = programBO.updateProgram(programDTO);
         if (updated) {
             System.out.println("Update Successfully");
@@ -133,10 +134,10 @@ public class AdminProgramFormController implements Initializable {
 
     private void setCellValuesFactory() {
 
-       colProgramID.setCellValueFactory(new PropertyValueFactory<>("id"));
-       colProgramName.setCellValueFactory(new PropertyValueFactory<>("name"));
-       colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
-       colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
+        colProgramID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colProgramName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colDuration.setCellValueFactory(new PropertyValueFactory<>("duration"));
+        colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
 
 
     }
@@ -145,7 +146,7 @@ public class AdminProgramFormController implements Initializable {
         ObservableList<ProgramTM> obList = FXCollections.observableArrayList();
         tblProgram.getItems().clear();
 
-        try{
+        try {
             ArrayList<ProgramDTO> list = programBO.getAllPrograms();
             for (ProgramDTO dto : list) {
 
@@ -156,11 +157,25 @@ public class AdminProgramFormController implements Initializable {
                         dto.getFee()
                 );
                 obList.add(programTM);
-        }
+            }
             tblProgram.setItems(obList);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    @FXML
+    void tableClick(MouseEvent event) {
+        TablePosition pos = tblProgram.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<ProgramTM, ?>> columns = tblProgram.getColumns();
+
+        txtID.setText(columns.get(0).getCellData(row).toString());
+        txtProgramName.setText(columns.get(1).getCellData(row).toString());
+        txtDuration.setText(columns.get(2).getCellData(row).toString());
+        txtFee.setText(columns.get(3).getCellData(row).toString());
+
 
     }
 }

@@ -18,4 +18,6 @@ public interface CrudDAO<T,ID> extends SuperDAO {
     void update(T entity) throws SQLException,ClassNotFoundException;
 
     void delete(T entity) throws SQLException,ClassNotFoundException;
+
+
 }

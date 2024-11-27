@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class ProgramTM {
     private String id;
     private String name;
+    private String seats;
     private String duration;
     private String fee;
 }

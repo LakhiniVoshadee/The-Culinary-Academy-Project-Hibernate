@@ -5,10 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -172,7 +169,15 @@ public class AdminStudentsFormController implements Initializable {
 
     @FXML
     void tableClick(MouseEvent event) {
-        
+        TablePosition pos = tblStudent.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
+        ObservableList<TableColumn<StudentTM, ?>> columns = tblStudent.getColumns();
+
+        stID.setText(columns.get(0).getCellData(row).toString());
+        stName.setText(columns.get(1).getCellData(row).toString());
+        stAddress.setText(columns.get(2).getCellData(row).toString());
+        stContact.setText(columns.get(3).getCellData(row).toString());
+        stEmail.setText(columns.get(4).getCellData(row).toString());
 
     }
 

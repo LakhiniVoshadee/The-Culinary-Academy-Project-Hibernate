@@ -3,6 +3,7 @@ package lk.ijse.repository.custom.impl;
 import lk.ijse.entity.Program;
 import lk.ijse.repository.custom.ProgramDAO;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,24 +14,24 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public void setSession(Session session) {
-        this.session=session;
+        this.session = session;
 
     }
 
     @Override
     public boolean save(Program entity) throws SQLException, ClassNotFoundException {
-       session.save(entity);
+        session.save(entity);
         return false;
     }
 
     @Override
     public ArrayList<Program> getAll() throws SQLException, ClassNotFoundException {
-        try{
+        try {
             List<Program> programs = session.createNativeQuery("SELECT * FROM Program", Program.class).getResultList();
             return (ArrayList<Program>) programs;
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
-        }finally {
+        } finally {
             session.close();
         }
     }
@@ -46,4 +47,13 @@ public class ProgramDAOImpl implements ProgramDAO {
         session.delete(entity);
 
     }
+
+    @Override
+    public int programCount() {
+        String sql = "SELECT COUNT(P.id) FROM Program AS P";
+        Query query = session.createQuery(sql);
+        Long count = (Long) query.getSingleResult();
+        return Math.toIntExact(count);
+    }
+
 }

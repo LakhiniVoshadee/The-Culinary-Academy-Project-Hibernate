@@ -3,6 +3,7 @@ package lk.ijse.repository.custom.impl;
 import lk.ijse.entity.Student;
 import lk.ijse.repository.custom.StudentDAO;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -51,4 +52,11 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
 
+    @Override
+    public int studentCount() {
+        String sql = "SELECT COUNT(S.id) FROM Student AS S";
+        Query query = session.createQuery(sql);
+        Long count = (Long) query.getSingleResult();
+        return Math.toIntExact(count);
+    }
 }

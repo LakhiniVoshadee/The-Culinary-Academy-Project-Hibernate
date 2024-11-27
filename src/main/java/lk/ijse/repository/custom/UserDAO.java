@@ -5,4 +5,5 @@ import lk.ijse.repository.CrudDAO;
 
 public interface UserDAO extends CrudDAO<User, String> {
 
+    int userCount();
 }

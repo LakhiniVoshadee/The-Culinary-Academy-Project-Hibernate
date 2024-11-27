@@ -43,6 +43,7 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public void delete(Program entity) throws SQLException, ClassNotFoundException {
+        session.delete(entity);
 
     }
 }

@@ -72,9 +72,9 @@ public class AdminUserFormController implements Initializable {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(id);
         boolean deleted = userBO.deleteUsers(userDTO);
-        if (deleted) {
+        if(deleted){
             System.out.println("Delete Successfully");
-            new Alert(Alert.AlertType.CONFIRMATION, "Delete Successfully").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"Delete Successfully").show();
             loadAllUsers();
         }
     }

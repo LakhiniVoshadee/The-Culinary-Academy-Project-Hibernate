@@ -1,33 +1,36 @@
 package lk.ijse.service;
 
-import lk.ijse.service.custom.impl.ProgramBOImpl;
-import lk.ijse.service.custom.impl.StudentBOImpl;
-import lk.ijse.service.custom.impl.UserBOImpl;
+import lk.ijse.service.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;
-    private BOFactory(){}
 
-    public static BOFactory getBoFactory(){
-        return (boFactory == null) ? boFactory=new BOFactory() : boFactory;
+    private BOFactory() {
     }
 
-    public enum BOTypes{
-       StudentBO,ProgramBO,UserBO
+    public static BOFactory getBoFactory() {
+        return (boFactory == null) ? boFactory = new BOFactory() : boFactory;
     }
 
-    public <T extends SuperBO>T getBO(BOFactory.BOTypes boTypes){
-        switch (boTypes){
-           case StudentBO:
-               return (T) new StudentBOImpl();
+    public <T extends SuperBO> T getBO(BOFactory.BOTypes boTypes) {
+        switch (boTypes) {
+            case StudentBO:
+                return (T) new StudentBOImpl();
             case ProgramBO:
-                   return (T) new ProgramBOImpl();
-                   case UserBO:
-                       return (T) new UserBOImpl();
+                return (T) new ProgramBOImpl();
+            case UserBO:
+                return (T) new UserBOImpl();
+
+            case AdminHomeBO:
+                return (T) new AdminHomeBOImpl();
             default:
                 return null;
         }
 
+    }
+
+    public enum BOTypes {
+        StudentBO, ProgramBO, UserBO, AdminHomeBO
     }
 
 }

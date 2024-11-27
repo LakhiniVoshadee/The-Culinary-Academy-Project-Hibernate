@@ -23,6 +23,9 @@ public class Program {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "seats")
+    private String seats;
+
     @Column(name = "duration")
     private String duration;
 
