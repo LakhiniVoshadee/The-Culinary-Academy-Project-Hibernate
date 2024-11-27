@@ -41,4 +41,54 @@ public class DataValidateController {
         Matcher matcher = pattern.matcher(studentEmail);
         return matcher.matches();
     }
+
+
+
+
+    //////////////////////////// PROGRAM ////////////////////////////////
+
+
+    public static boolean programIdValidate(String programId) {
+        String programRegex = "^(P)[0-9]{3}$";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(programId);
+        return matcher.matches();
+    }
+
+    public static boolean programNameValidate(String programName) {
+        String programRegex = "^[A-z\\s]{4,20}$";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(programName);
+        return matcher.matches();
+
+    }
+
+    public static boolean programSeatsValidate(String programSeats) {
+        String programRegex = "^[1-9][0-9]*$";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(programSeats);
+        return matcher.matches();
+
+    }
+
+    public static boolean programDurationValidate(String programDuration) {
+        String programRegex = "^([0-9]+)\\s+years?\\s+([0-9]|1[0-1])\\s+months?$\n";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(programDuration);
+        return matcher.matches();
+
+    }
+
+    public static boolean programFeeValidate(String programFee) {
+        String programRegex = "^\\d{1,3}(,\\d{3})*(\\.\\d{1,2})?$\n";
+        Pattern pattern = Pattern.compile(programRegex);
+        Matcher matcher = pattern.matcher(programFee);
+        return matcher.matches();
+
+    }
+
+
+    ////////////////////////// PROGRAM ///////////////////////////////
+
+
 }

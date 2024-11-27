@@ -13,6 +13,7 @@ import lk.ijse.dto.ProgramDTO;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.ProgramBO;
 import lk.ijse.tm.ProgramTM;
+import lk.ijse.util.DataValidateController;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -58,6 +59,21 @@ public class AdminProgramFormController implements Initializable {
 
     @FXML
     private TextField txtSeats;
+
+    @FXML
+    private Label lblDurationValidate;
+
+    @FXML
+    private Label lblFeeValidate;
+
+    @FXML
+    private Label lblProgramIdValidate;
+
+    @FXML
+    private Label lblProgramNameValidate;
+
+    @FXML
+    private Label lblProgramSeatsValidate;
 
 
     @Override
@@ -109,13 +125,50 @@ public class AdminProgramFormController implements Initializable {
             String fee = txtFee.getText();
 
             ProgramDTO programDTO = new ProgramDTO(id, name,seats, duration, fee);
-            boolean saved = programBO.saveProgram(programDTO);
+          /*  boolean saved = programBO.saveProgram(programDTO);
             if (saved) {
                 clearFields();
                 new Alert(Alert.AlertType.CONFIRMATION, "Save Successfully").show();
                 loadAllPrograms();
             }
-        }
+            */
+            /////////////////// VALIDATION ///////////////////////////////
+
+
+            if (DataValidateController.programIdValidate(txtID.getText())) {
+                lblProgramIdValidate.setText("");
+                if (DataValidateController.programNameValidate(txtProgramName.getText())) {
+                    lblProgramNameValidate.setText("");
+                    if (DataValidateController.programSeatsValidate(txtSeats.getText())) {
+                        lblProgramSeatsValidate.setText("");
+                        if (DataValidateController.programDurationValidate(txtDuration.getText())) {
+                            lblDurationValidate.setText("");
+                            if (DataValidateController.programFeeValidate(txtFee.getText())) {
+                                lblFeeValidate.setText("");
+                                boolean saved = programBO.saveProgram(programDTO);
+                                if (saved) {
+                                    clearFields();
+                                    new Alert(Alert.AlertType.CONFIRMATION, "Save Successfully").show();
+                                    loadAllPrograms();
+                                }
+                            } else {
+                                lblFeeValidate.setText("Invalid Fee");
+                            }
+                        } else {
+                            lblDurationValidate.setText("Invalid Duration");
+                        }
+                    } else {
+                        lblProgramSeatsValidate.setText("Invalid Seats");
+                    }
+                    }else {
+                        lblProgramNameValidate.setText("Invalid Program Name");
+                    }
+            } else {
+                lblProgramIdValidate.setText("Invalid Program ID");
+            }
+            }
+                                
+
 
     }
 
