@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.dto.ProgramDTO;
 import lk.ijse.dto.StudentDto;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.ProgramBO;
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 public class AdminRegistrationFormController implements Initializable {
 
     @FXML
-    private JFXComboBox<?> cmbProgramID;
+    private JFXComboBox<String> cmbProgramID;
 
     @FXML
     private JFXComboBox<String> cmbStudentID;
@@ -96,7 +97,20 @@ public class AdminRegistrationFormController implements Initializable {
     }
 
     @FXML
-    void handleProgramSelection(ActionEvent event) {
+    void handleProgramSelection(ActionEvent event) throws Exception {
+        String selectedProgramId = (String) cmbProgramID.getSelectionModel().getSelectedItem();
+        if(selectedProgramId != null){
+
+            ProgramDTO programDto = programBO.searchProgramById(selectedProgramId);
+            if (programDto != null) {
+                txtProgramName.setText(programDto.getName());
+
+
+            }
+
+
+        }
+
 
     }
 
@@ -126,12 +140,34 @@ public class AdminRegistrationFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadAllStudents();
+        loadAllPrograms();
         cmbStudentID.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
             }
 
 
         });
+
+        cmbProgramID.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+
+            }
+        });
+    }
+
+    private void loadAllPrograms() {
+
+        ObservableList<String> programs = FXCollections.observableArrayList();
+        try {
+            ArrayList<ProgramDTO> allPrograms = programBO.getAllPrograms();
+            for (ProgramDTO program : allPrograms) {
+                programs.add(program.getId());
+            }
+            cmbProgramID.setItems(programs);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private void loadAllStudents() {

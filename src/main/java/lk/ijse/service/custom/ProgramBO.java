@@ -1,6 +1,7 @@
 package lk.ijse.service.custom;
 
 import lk.ijse.dto.ProgramDTO;
+import lk.ijse.dto.StudentDto;
 import lk.ijse.service.SuperBO;
 
 import java.sql.SQLException;
@@ -17,5 +18,5 @@ public interface ProgramBO extends SuperBO {
 
     String generateNextProgramId() throws Exception;
 
-    ProgramDTO searchProgram(String id) throws Exception;
+    ProgramDTO searchProgramById(String selectedProgramId) throws Exception;
 }

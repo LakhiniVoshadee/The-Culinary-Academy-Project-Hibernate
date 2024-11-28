@@ -2,6 +2,7 @@ package lk.ijse.repository.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.entity.Program;
+import lk.ijse.entity.Student;
 import lk.ijse.repository.custom.ProgramDAO;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -89,6 +90,19 @@ public class ProgramDAOImpl implements ProgramDAO {
         try{
             Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
             return session.get(Program.class,id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Program searchProgramById(String selectedProgramId) {
+
+        try(Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession()){
+            Query<Program> query = session.createQuery("FROM Program WHERE id = :id", Program.class);
+            query.setParameter("id", selectedProgramId);
+            return query.getSingleResult();
         }catch (Exception e){
             e.printStackTrace();
             return null;

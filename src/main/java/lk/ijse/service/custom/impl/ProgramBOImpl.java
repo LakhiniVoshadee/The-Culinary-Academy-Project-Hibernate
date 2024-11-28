@@ -110,6 +110,27 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
+    public ProgramDTO searchProgramById(String selectedProgramId) throws Exception {
+        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
+        programDAO.setSession(session);
+        Program program = programDAO.search(selectedProgramId);
+        session.close();
+        if (program != null) {
+            return new ProgramDTO(
+                    program.getId(),
+                    program.getName(),
+                    program.getSeats(),
+                    program.getDuration(),
+                    program.getFee()
+            );
+        } else {
+            return null;
+        }
+
+
+    }
+
+    /*@Override
     public ProgramDTO searchProgram(String id) throws Exception {
         Program program = programDAO.search(id);
         return new ProgramDTO(
@@ -118,7 +139,7 @@ public class ProgramBOImpl implements ProgramBO {
                 program.getSeats(),
                 program.getDuration(),
                 program.getFee());
-    }
+    }*/
 
     private String incrementId(String lastId) {
         if (lastId == null) {
