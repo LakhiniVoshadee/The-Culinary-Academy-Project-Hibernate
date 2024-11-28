@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class AdminRegistrationFormController implements Initializable {
 
     @FXML
-    private JFXComboBox<?> cmbProgramID;
+    private JFXComboBox<String> cmbProgramID;
 
     @FXML
     private JFXComboBox<String> cmbStudentID;
@@ -78,7 +78,7 @@ public class AdminRegistrationFormController implements Initializable {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-
+       
     }
 
     @FXML
@@ -132,10 +132,10 @@ public class AdminRegistrationFormController implements Initializable {
 
     }
 
-    @FXML
+   /* @FXML
     void txtRegSearchOnAction(ActionEvent event) {
 
-    }
+    }*/
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -157,13 +157,13 @@ public class AdminRegistrationFormController implements Initializable {
 
     private void loadAllPrograms() {
 
-        ObservableList<String> students = FXCollections.observableArrayList();
+        ObservableList<String> programs = FXCollections.observableArrayList();
         try {
             ArrayList<ProgramDTO> allPrograms = programBO.getAllPrograms();
-            for (ProgramDTO pro : allPrograms) {
-                students.add(student.getId());
+            for (ProgramDTO program : allPrograms) {
+                programs.add(program.getId());
             }
-            cmbStudentID.setItems(students);
+            cmbProgramID.setItems(programs);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

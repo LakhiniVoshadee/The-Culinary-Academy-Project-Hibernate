@@ -40,10 +40,18 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public ArrayList<StudentDto> getAllStudents() throws SQLException, ClassNotFoundException {
+    public ArrayList<StudentDto> getAllStudents() throws SQLException {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
         studentDAO.setSession(session);
-        ArrayList<Student> students = studentDAO.getAll();
+        ArrayList<Student> students = null;
+        try {
+            students = studentDAO.getAll();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        if (students == null) {
+            return new ArrayList<>();
+        }
         ArrayList<StudentDto> studentDTOS = new ArrayList<>();
         for (Student student : students) {
             studentDTOS.add(new StudentDto(
@@ -111,7 +119,7 @@ public class StudentBOImpl implements StudentBO {
         studentDAO.setSession(session);
         Student student = studentDAO.searchStudentById(selectedStudentId);
         session.close();
-        if (student == null) {
+        if (student != null) {
             return new StudentDto(
                     student.getId(),
                     student.getName(),
