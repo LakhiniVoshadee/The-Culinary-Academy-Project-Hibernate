@@ -14,7 +14,6 @@ public class MainFormController {
     private JFXButton btnUser;
 
 
-
     @FXML
     void btnAdminOnAction(ActionEvent event) {
         btnAdmin.getScene().getWindow().hide();

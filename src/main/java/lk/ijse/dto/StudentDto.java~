@@ -16,12 +16,6 @@ public class StudentDto {
     private String contact;
     private String email;
 
-    public StudentDto(String studentId,String studentname){
-        this.id=studentId;
-        this.name=studentname;
-
-    }
-
 
     public Student toEntity(){
         Student student = new Student();

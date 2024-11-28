@@ -15,7 +15,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public void setSession(Session session) {
-        this.session=session;
+        this.session = session;
 
     }
 
@@ -27,16 +27,14 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
 
-
-
     @Override
     public ArrayList<Student> getAll() throws SQLException, ClassNotFoundException {
-        try{
+        try {
             List<Student> students = session.createNativeQuery("SELECT * FROM Student", Student.class).getResultList();
             return (ArrayList<Student>) students;
-        }catch (Exception e){
+        } catch (Exception e) {
             return null;
-        }finally {
+        } finally {
             session.close();
         }
     }

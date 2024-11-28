@@ -19,13 +19,13 @@ public class AdminHomeBOImpl implements AdminHomeBO {
     public int programCount() {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
 
-        try{
+        try {
             programDAO.setSession(session);
             int count = programDAO.programCount();
 
             session.close();
             return count;
-        }catch (Exception e){
+        } catch (Exception e) {
             session.close();
             e.printStackTrace();
             return -1;
@@ -36,13 +36,13 @@ public class AdminHomeBOImpl implements AdminHomeBO {
     public int studentCount() {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
 
-        try{
+        try {
             studentDAO.setSession(session);
             int count = studentDAO.studentCount();
 
             session.close();
             return count;
-        }catch (Exception e){
+        } catch (Exception e) {
             session.close();
             e.printStackTrace();
             return -1;
@@ -53,13 +53,13 @@ public class AdminHomeBOImpl implements AdminHomeBO {
     public int userCount() {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
 
-        try{
+        try {
             userDAO.setSession(session);
             int count = userDAO.userCount();
 
             session.close();
             return count;
-        }catch (Exception e){
+        } catch (Exception e) {
             session.close();
             e.printStackTrace();
             return -1;

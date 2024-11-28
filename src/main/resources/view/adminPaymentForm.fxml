@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="pagingPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminPaymentFormController">
+   <children>
+      <AnchorPane layoutX="2.0" prefHeight="794.0" prefWidth="1191.0" style="-fx-background-radius: 20; -fx-background-color: #D1D8C5;" />
+      <Text layoutX="53.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payments Manage">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="82.0" layoutY="125.0" text="Payment Id:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPaymentId" layoutX="81.0" layoutY="146.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="276.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <Label layoutX="478.0" layoutY="125.0" text="Enrollment Id:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="478.0" layoutY="187.0" text="Date:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="82.0" layoutY="183.0" text="Amount:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAmount" layoutX="81.0" layoutY="206.0" prefHeight="30.0" prefWidth="276.0">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="848.0" layoutY="126.0" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #FFC700;" text="Update">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../../../../../../../Shachiru/the-culinary-academy/Culinary-Academy-Orm-Coursework/Culinary-Academy-Orm-Coursework/Naaaadun/ORM-Course-Work/target/classes/Assets/icons/icons8-update-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="848.0" layoutY="175.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #06D001;" text="Save">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../../../../../../../Shachiru/the-culinary-academy/Culinary-Academy-Orm-Coursework/Culinary-Academy-Orm-Coursework/Naaaadun/ORM-Course-Work/target/classes/Assets/icons/icons8-save-48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="848.0" layoutY="224.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #FF0000;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../../../../../../../Shachiru/the-culinary-academy/Culinary-Academy-Orm-Coursework/Culinary-Academy-Orm-Coursework/Naaaadun/ORM-Course-Work/target/classes/Assets/icons/icons8-clear-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="848.0" layoutY="273.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: #212884;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="24.0">
+               <image>
+                  <Image url="@../../../../../../../Shachiru/the-culinary-academy/Culinary-Academy-Orm-Coursework/Culinary-Academy-Orm-Coursework/Naaaadun/ORM-Course-Work/target/classes/Assets/icons/icons8-delete-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TableView fx:id="tblPayment" layoutX="77.0" layoutY="334.0" prefHeight="239.0" prefWidth="878.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="197.6000213623047" text="Payment Id" />
+            <TableColumn fx:id="colEnrollId" prefWidth="238.39996337890625" text="Enrollment Id" />
+            <TableColumn fx:id="colAmount" prefWidth="256.800048828125" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="184.79998779296875" text="Date" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtDate" layoutX="477.0" layoutY="209.0" prefHeight="30.0" prefWidth="276.0">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="cmbEnrollmentId" layoutX="477.0" layoutY="146.0" prefHeight="30.0" prefWidth="276.0" />
+   </children>
+</AnchorPane>

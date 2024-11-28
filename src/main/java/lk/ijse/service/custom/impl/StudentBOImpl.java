@@ -86,7 +86,7 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteStudent(StudentDto studentDTO)  {
+    public boolean deleteStudent(StudentDto studentDTO) {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
         Transaction transaction = session.beginTransaction();
 

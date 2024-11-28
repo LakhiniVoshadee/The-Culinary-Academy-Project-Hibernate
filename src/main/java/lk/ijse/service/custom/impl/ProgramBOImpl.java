@@ -2,9 +2,7 @@ package lk.ijse.service.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dto.ProgramDTO;
-import lk.ijse.dto.StudentDto;
 import lk.ijse.entity.Program;
-import lk.ijse.entity.Student;
 import lk.ijse.repository.DAOFactory;
 import lk.ijse.repository.custom.ProgramDAO;
 import lk.ijse.service.custom.ProgramBO;
@@ -16,6 +14,7 @@ import java.util.ArrayList;
 
 public class ProgramBOImpl implements ProgramBO {
     ProgramDAO programDAO = DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ProgramDAO);
+
     @Override
     public boolean saveProgram(ProgramDTO programDTO) {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();

@@ -11,9 +11,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminSidePanelController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminSidePanelController">
    <children>
-      <Pane fx:id="pagingPane" layoutX="242.0" prefHeight="801.0" prefWidth="1400.0" />
+      <Pane fx:id="pagingPane" layoutX="242.0" prefHeight="800.0" prefWidth="1300.0" />
       <VBox alignment="TOP_CENTER" prefHeight="801.0" prefWidth="242.0" spacing="60.0" style="-fx-background-color: #c5bfb9;">
          <children>
             <ImageView fitHeight="94.0" fitWidth="111.0">
@@ -43,6 +43,27 @@
                </ripplerFill>
             </JFXButton>
             <JFXButton fx:id="btnRegistration" buttonType="RAISED" onAction="#btnRegistrationOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Registration" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.6052631735801697" green="0.6052631735801697" blue="0.6052631735801697" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="btnPayment" buttonType="RAISED" onAction="#btnPaymentOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Payment" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

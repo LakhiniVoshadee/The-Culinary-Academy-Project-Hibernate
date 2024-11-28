@@ -170,7 +170,6 @@ public class AdminStudentsFormController implements Initializable {
     }
 
 
-
     private void loadAllStudents() {
         ObservableList<StudentTM> obList = FXCollections.observableArrayList();
         tblStudent.getItems().clear();

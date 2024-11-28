@@ -48,7 +48,7 @@ public class AdminSignUpFormController {
 
     @FXML
     void btnSignUpOnAction(ActionEvent event) throws IOException {
-        Navigation.switchNavigation("adminSignUpForm.fxml", event);
+        Navigation.switchNavigation("adminLoginForm.fxml", event);
 
     }
 }

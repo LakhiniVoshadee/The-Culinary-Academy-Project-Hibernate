@@ -1,10 +1,8 @@
 package lk.ijse.repository.custom.impl;
 
-import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.entity.Admin;
 import lk.ijse.repository.custom.AdminDAO;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

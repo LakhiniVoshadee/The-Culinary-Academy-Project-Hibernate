@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,55 +12,34 @@ import javafx.scene.layout.AnchorPane;
 public class AdminRegistrationFormController {
 
     @FXML
-    private JFXButton btnAddCart;
-
-    @FXML
-    private JFXButton btnAddPrpgram;
-
-    @FXML
-    private JFXButton btnAddStudent;
-
-    @FXML
-    private JFXButton btnBuy;
-
-    @FXML
-    private JFXButton btnClear;
-
-    @FXML
-    private JFXButton btnPurchaseDetail;
-
-    @FXML
     private JFXComboBox<?> cmbProgramName;
 
     @FXML
-    private JFXComboBox<?> cmbStID;
-
-    @FXML
-    private TableColumn<?, ?> colAdvance;
-
-    @FXML
-    private TableColumn<?, ?> colBalance;
+    private JFXComboBox<?> cmbStudentId;
 
     @FXML
     private TableColumn<?, ?> colDate;
 
     @FXML
-    private TableColumn<?, ?> colFee;
+    private TableColumn<?, ?> colEnrollmentId;
 
     @FXML
     private TableColumn<?, ?> colProgramID;
 
     @FXML
-    private TableColumn<?, ?> colPurchaseID;
+    private TableColumn<?, ?> colProgramName;
 
     @FXML
-    private TableColumn<?, ?> colRemove;
+    private TableColumn<?, ?> colStudentId;
 
     @FXML
-    private TableColumn<?, ?> colStudentID;
+    private TableColumn<?, ?> colStudentName;
 
     @FXML
-    private DatePicker dpDate;
+    private TableColumn<?, ?> colTotalFee;
+
+    @FXML
+    private TableColumn<?, ?> colUpfrontFee;
 
     @FXML
     private AnchorPane pagingPane;
@@ -70,63 +48,22 @@ public class AdminRegistrationFormController {
     private TableView<?> tblPurchase;
 
     @FXML
-    private TextField txtAdvance;
+    private DatePicker txtDate;
 
     @FXML
-    private TextField txtBalance;
-
-    @FXML
-    private TextField txtBalanceAmount;
-
-    @FXML
-    private TextField txtContact;
-
-    @FXML
-    private TextField txtDuration;
-
-    @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private TextField txtFee;
-
-    @FXML
-    private TextField txtPayementAmount;
+    private TextField txtEnrollmentId;
 
     @FXML
     private TextField txtProgramID;
 
     @FXML
-    private TextField txtPurchaseID;
+    private TextField txtStudentName;
 
     @FXML
-    private TextField txtSeats;
+    private TextField txtTotalFee;
 
     @FXML
-    private TextField txtStName;
-
-    @FXML
-    private TextField txtTotalAmount;
-
-    @FXML
-    void btnAddCartOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnAddProgramOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnAddStudentOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnBuyOnAction(ActionEvent event) {
-
-    }
+    private TextField txtUpFrontPayment;
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -134,7 +71,32 @@ public class AdminRegistrationFormController {
     }
 
     @FXML
-    void btnPurchaseDetailsOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSaveOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleCourseSelection(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleStudentSelection(ActionEvent event) {
+
+    }
+
+    @FXML
+    void txtSearchOnAction(ActionEvent event) {
 
     }
 

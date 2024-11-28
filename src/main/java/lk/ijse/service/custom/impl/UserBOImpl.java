@@ -24,13 +24,13 @@ public class UserBOImpl implements UserBO {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
         Transaction transaction = session.beginTransaction();
 
-        try{
+        try {
             userDAO.setSession(session);
             userDAO.save(userDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class UserBOImpl implements UserBO {
             throw new RuntimeException(e);
         }
         ArrayList<UserDTO> userDTOS = new ArrayList<>();
-        for(User user : users){
+        for (User user : users) {
             userDTOS.add(new UserDTO(
                     user.getId(),
                     user.getName(),
@@ -63,20 +63,20 @@ public class UserBOImpl implements UserBO {
         session.close();
         return userDTOS;
 
-}
+    }
 
     @Override
     public boolean updateUsers(UserDTO userDTO) {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
         Transaction transaction = session.beginTransaction();
 
-        try{
+        try {
             userDAO.setSession(session);
             userDAO.update(userDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
             e.printStackTrace();
@@ -89,13 +89,13 @@ public class UserBOImpl implements UserBO {
         Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
         Transaction transaction = session.beginTransaction();
 
-        try{
+        try {
             userDAO.setSession(session);
             userDAO.delete(userDTO.toEntity());
             transaction.commit();
             session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
             e.printStackTrace();
@@ -122,5 +122,5 @@ public class UserBOImpl implements UserBO {
         }
 
     }
-    }
+}
 

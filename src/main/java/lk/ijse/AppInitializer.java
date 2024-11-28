@@ -12,7 +12,6 @@ public class AppInitializer extends Application {
         launch(args);
 
 
-
     }
 
     @Override

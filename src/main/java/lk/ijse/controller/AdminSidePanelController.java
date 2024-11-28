@@ -26,6 +26,8 @@ public class AdminSidePanelController implements Initializable {
     private JFXButton btnRegistration;
 
     @FXML
+    private JFXButton btnPayment;
+    @FXML
     private JFXButton btnStudents;
 
     @FXML
@@ -61,12 +63,18 @@ public class AdminSidePanelController implements Initializable {
 
     @FXML
     void btnStudentsOnAction(ActionEvent event) throws IOException {
-   Navigation.switchPaging(pagingPane, "adminStudentsForm.fxml");
+        Navigation.switchPaging(pagingPane, "adminStudentsForm.fxml");
     }
 
     @FXML
     void btnUsersOnAction(ActionEvent event) throws IOException {
         Navigation.switchPaging(pagingPane, "adminUserForm.fxml");
+
+    }
+
+    @FXML
+    void btnPaymentOnAction(ActionEvent event) throws IOException {
+        Navigation.switchPaging(pagingPane, "adminPaymentForm.fxml");
 
     }
 

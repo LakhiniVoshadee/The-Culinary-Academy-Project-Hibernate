@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.ProgramDTO;
-import lk.ijse.dto.StudentDto;
 import lk.ijse.service.BOFactory;
 import lk.ijse.service.custom.ProgramBO;
 import lk.ijse.tm.ProgramTM;
@@ -128,9 +127,9 @@ public class AdminProgramFormController implements Initializable {
         if (validateInputFields()) {
             String id = txtID.getText();
             String name = txtProgramName.getText();
-            String seats =  txtSeats.getText();
-            String duration =  txtDuration.getText();
-            String fee =  txtFee.getText();
+            String seats = txtSeats.getText();
+            String duration = txtDuration.getText();
+            String fee = txtFee.getText();
 
             ProgramDTO programDTO = new ProgramDTO(id, name, seats, duration, fee);
             boolean saved = programBO.saveProgram(programDTO);
@@ -154,7 +153,7 @@ public class AdminProgramFormController implements Initializable {
         }
 
         if (!DataValidateController.programNameValidate(txtProgramName.getText())) {
-              lblProgramNameValidate.setText("Invalid Program Name!");
+            lblProgramNameValidate.setText("Invalid Program Name!");
             isValid = false;
         } else {
             lblProgramNameValidate.setText("");
@@ -168,7 +167,7 @@ public class AdminProgramFormController implements Initializable {
         }
 
         if (!DataValidateController.programDurationValidate(txtDuration.getText())) {
-          lblDurationValidate.setText("Invalid Duration!");
+            lblDurationValidate.setText("Invalid Duration!");
             isValid = false;
         } else {
             lblDurationValidate.setText("");
