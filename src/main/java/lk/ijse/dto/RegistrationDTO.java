@@ -1,6 +1,7 @@
 package lk.ijse.dto;
 
 
+import lk.ijse.entity.Program;
 import lk.ijse.entity.Registration;
 import lk.ijse.entity.Student;
 import lk.ijse.tm.CartTM;
@@ -17,17 +18,9 @@ import java.util.List;
 @AllArgsConstructor
 public class RegistrationDTO {
 
-    private String eid;
-    private String Programname;
-    private String pid;
-    private LocalDate date;
-    private String sid;
-    private String Studentname;
-    private Double remainingfee;
-    private Double upfrontpayment;
-  //  private List<CartTM> cartList = new ArrayList<>();
-
-
+    private String id;
+    private Student student;
+    private Program program;
 
 
 }

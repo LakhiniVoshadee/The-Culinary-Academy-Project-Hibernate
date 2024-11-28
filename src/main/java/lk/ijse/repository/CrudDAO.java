@@ -1,6 +1,5 @@
 package lk.ijse.repository;
 
-import lk.ijse.entity.Student;
 import org.hibernate.Session;
 
 import java.sql.SQLException;
@@ -15,10 +14,12 @@ public interface CrudDAO<T,ID> extends SuperDAO {
     ArrayList<T> getAll() throws SQLException,ClassNotFoundException;
 
 
-    void update(T entity) throws SQLException,ClassNotFoundException;
+    boolean update(T entity) throws SQLException,ClassNotFoundException;
 
     void delete(T entity) throws SQLException,ClassNotFoundException;
 
 
     String getLastId() throws Exception;
+
+    T find(ID id);
 }

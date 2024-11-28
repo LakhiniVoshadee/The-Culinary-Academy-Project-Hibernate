@@ -1,73 +1,50 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import lk.ijse.dto.ProgramDTO;
+import lk.ijse.dto.StudentDto;
 import lk.ijse.service.BOFactory;
+import lk.ijse.service.custom.ProgramBO;
+import lk.ijse.service.custom.RegistrationBO;
+import lk.ijse.service.custom.StudentBO;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminRegistrationFormController  implements Initializable {
+public class AdminRegistrationFormController implements Initializable {
 
     @FXML
-    private JFXButton btnAddCart;
+    private JFXComboBox<?> cmbProgramID;
 
     @FXML
-    private JFXButton btnAddPrpgram;
+    private JFXComboBox<?> cmbStudentID;
 
     @FXML
-    private JFXButton btnAddStudent;
+    private TableColumn<?, ?> colProgramId;
 
     @FXML
-    private JFXButton btnBuy;
+    private TableColumn<?, ?> colProgramName;
 
     @FXML
-    private JFXButton btnClear;
+    private TableColumn<?, ?> colRegId;
 
     @FXML
-    private JFXButton btnPurchaseDetail;
+    private TableColumn<?, ?> colRemFee;
 
     @FXML
-    private JFXComboBox<?> cmbProgramName;
+    private TableColumn<?, ?> colStudentId;
 
     @FXML
-    private JFXComboBox<?> cmbStID;
+    private TableColumn<?, ?> colStudentName;
 
     @FXML
-    private TableColumn<?, ?> colAdvance;
-
-    @FXML
-    private TableColumn<?, ?> colBalance;
-
-    @FXML
-    private TableColumn<?, ?> colDate;
-
-    @FXML
-    private TableColumn<?, ?> colFee;
-
-    @FXML
-    private TableColumn<?, ?> colProgramID;
-
-    @FXML
-    private TableColumn<?, ?> colPurchaseID;
-
-    @FXML
-    private TableColumn<?, ?> colRemove;
-
-    @FXML
-    private TableColumn<?, ?> colStudentID;
-
-    @FXML
-    private DatePicker dpDate;
+    private TableColumn<?, ?> colUpfrontFee;
 
     @FXML
     private AnchorPane pagingPane;
@@ -76,66 +53,24 @@ public class AdminRegistrationFormController  implements Initializable {
     private TableView<?> tblPurchase;
 
     @FXML
-    private TextField txtAdvance;
+    private TextField txtProgramName;
 
     @FXML
-    private TextField txtBalance;
+    private TextField txtRegID;
 
     @FXML
-    private TextField txtBalanceAmount;
+    private TextField txtStudentName;
 
     @FXML
-    private TextField txtContact;
+    private TextField txtTotalFee;
 
     @FXML
-    private TextField txtDuration;
+    private TextField txtUpFrontPayment;
 
-    @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private TextField txtFee;
-
-    @FXML
-    private TextField txtPayementAmount;
-
-    @FXML
-    private TextField txtProgramID;
-
-    @FXML
-    private TextField txtPurchaseID;
-
-    @FXML
-    private TextField txtSeats;
-
-    @FXML
-    private TextField txtStName;
-
-    @FXML
-    private TextField txtTotalAmount;
-
-    //RegistrationBO registrationBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RegistrationBO);
-
-    ProgramDTO programDTO;
-    @FXML
-    void btnAddCartOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnAddProgramOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnAddStudentOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnBuyOnAction(ActionEvent event) {
-
-    }
+    StudentBO studentBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.StudentBO);
+    ProgramBO programBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ProgramBO);
+    RegistrationBO registrationBO = BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RegistrationBO);
+  //private StudentBO studentBO;
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -143,30 +78,56 @@ public class AdminRegistrationFormController  implements Initializable {
     }
 
     @FXML
-    void btnPurchaseDetailsOnAction(ActionEvent event) {
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnSaveOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleProgramSelection(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleStudentSelection(ActionEvent event) throws Exception {
+       String selectedStudentId = (String) cmbStudentID.getSelectionModel().getSelectedItem();
+       if(selectedStudentId != null){
+
+           StudentDto studentDto = studentBO.searchStudentById(selectedStudentId);
+           if (studentDto != null) {
+               txtStudentName.setText(studentDto.getName());
+
+
+           }
+
+
+       }
+
+
+    }
+
+    @FXML
+    void txtRegSearchOnAction(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-      loadStudentId();
-      loadProgramId();
-      setCellValueFactory();
-    }
+        cmbStudentID.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+            }
+            ;
 
-    private void loadStudentId() {
-
-    }
-
-    private void setCellValueFactory() {
-
-    }
-
-    private void loadProgramId() {
-        /*ArrayList<ProgramDTO> allUsers = transactionBO.getAllBooks();
-        for(BookDTO bookDTO1 : allBooks){
-            cmbBookId.getItems().add(.getId());*/
-
+        });
     }
 
 

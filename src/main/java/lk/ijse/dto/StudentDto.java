@@ -16,11 +16,11 @@ public class StudentDto {
     private String contact;
     private String email;
 
-    public StudentDto(String studentId,String studentname){
+   /* public StudentDto(String studentId,String studentname){
         this.id=studentId;
         this.name=studentname;
 
-    }
+    }*/
 
 
     public Student toEntity(){

@@ -13,6 +13,10 @@ import java.util.List;
 public class StudentDAOImpl implements StudentDAO {
     private Session session;
 
+    public StudentDAOImpl() {
+        session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
+    }
+
     @Override
     public void setSession(Session session) {
         this.session = session;
@@ -40,9 +44,10 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public void update(Student entity) throws SQLException, ClassNotFoundException {
+    public boolean update(Student entity) throws SQLException, ClassNotFoundException {
         session.update(entity);
 
+        return false;
     }
 
     @Override
@@ -79,5 +84,26 @@ public class StudentDAOImpl implements StudentDAO {
         Query idquery = session.createQuery(sql);
         String studentId = (String) idquery.setMaxResults(1).uniqueResult();
         return studentId;
+    }
+
+    @Override
+    public Student find(String studentId) {
+        Query<Student> query = session.createQuery("FROM Student WHERE id = :id", Student.class);
+        query.setParameter("id", studentId);
+        return query.getSingleResult();
+
+    }
+
+    @Override
+    public Student searchStudentById(String selectedStudentId) {
+
+        try(Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession()){
+            Query<Student> query = session.createQuery("FROM Student WHERE id = :id", Student.class);
+            query.setParameter("id", selectedStudentId);
+            return query.getSingleResult();
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

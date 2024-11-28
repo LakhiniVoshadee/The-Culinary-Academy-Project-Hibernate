@@ -111,7 +111,7 @@ public class StudentBOImpl implements StudentBO {
         studentDAO.setSession(session);
         Student student = studentDAO.searchStudentById(selectedStudentId);
         session.close();
-        if (student != null) {
+        if (student == null) {
             return new StudentDto(
                     student.getId(),
                     student.getName(),

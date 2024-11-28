@@ -24,8 +24,10 @@ public class BOFactory {
             case AdminHomeBO:
                 return (T) new AdminHomeBOImpl();
 
-           /* case RegistrationBO:
-                return (T) new RegistrationBOImpl();*/
+                case RegistrationBO:
+                return (T) new RegistrationBOImpl();
+
+
             default:
                 return null;
         }
@@ -33,7 +35,7 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        StudentBO, ProgramBO, UserBO, AdminHomeBO
+        StudentBO, ProgramBO, UserBO, AdminHomeBO, RegistrationBO
     }
 
 }

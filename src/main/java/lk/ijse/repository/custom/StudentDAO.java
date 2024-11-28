@@ -7,4 +7,9 @@ public interface StudentDAO extends CrudDAO <Student,String> {
 
     int studentCount();
     String generateNextId();
+    Student find(String studentId);
+
+    Student searchStudentById(String selectedStudentId);
+
+   // Student getAll();
 }

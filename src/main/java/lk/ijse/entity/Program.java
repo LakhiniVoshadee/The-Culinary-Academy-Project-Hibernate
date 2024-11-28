@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -31,6 +33,19 @@ public class Program {
 
     @Column(name = "fee")
     private String fee;
+
+    /*@OneToMany(mappedBy = "programs", cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
+    private List<Registration> enrollmentList = new ArrayList<>();
+
+    public void addEnrollment(Registration enrollment) {
+        enrollmentList.add(enrollment);
+        enrollment.setProgram(this);
+    }
+
+    public void removeEnrollment(Registration registration) {
+        enrollmentList.remove(registration);
+        registration.setProgram(null);
+    }*/
 
 
   /*  @ManyToOne

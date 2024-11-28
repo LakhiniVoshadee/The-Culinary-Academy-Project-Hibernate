@@ -39,8 +39,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(User entity) throws SQLException, ClassNotFoundException {
+    public boolean update(User entity) throws SQLException, ClassNotFoundException {
         session.update(entity);
+        return false;
     }
 
     @Override
@@ -59,6 +60,11 @@ public class UserDAOImpl implements UserDAO {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public User find(String s) {
+        return null;
     }
 
     @Override

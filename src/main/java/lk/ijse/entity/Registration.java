@@ -1,14 +1,12 @@
 package lk.ijse.entity;
 
-
+import lk.ijse.entity.Program;
+import lk.ijse.entity.Student;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,22 +18,16 @@ public class Registration {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "registration_id")
-    private String eid;
+    private String id;
 
     @ManyToOne
-    @JoinColumn(name = "sid")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "pid")
+    @JoinColumn(name = "program_id")
     private Program program;
 
-  @OneToMany(mappedBy = "registration", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Payment>paymentList = new ArrayList<>();
-
-    private LocalDate date;
-    private Double upfrontpayment;
-    private Double remainingfee;
-
-
+    private double fee;
+    private double upfrontFee;
 }

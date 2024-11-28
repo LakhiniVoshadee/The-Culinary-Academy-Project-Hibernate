@@ -37,8 +37,9 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
-    public void update(Admin entity) throws SQLException, ClassNotFoundException {
+    public boolean update(Admin entity) throws SQLException, ClassNotFoundException {
         session.update(entity);
+        return false;
     }
 
     @Override
@@ -49,6 +50,11 @@ public class AdminDAOImpl implements AdminDAO {
     @Override
     public String getLastId() throws Exception {
         return "";
+    }
+
+    @Override
+    public Admin find(String s) {
+        return null;
     }
 
 

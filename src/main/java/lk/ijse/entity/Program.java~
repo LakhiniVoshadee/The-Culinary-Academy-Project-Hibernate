@@ -1,6 +1,5 @@
 package lk.ijse.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +15,8 @@ import java.util.List;
 @Entity
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@Table(name = "Student")
-public class Student {
-
+@Table(name = "Program")
+public class Program {
 
     @Id
     @Column(name = "id")
@@ -27,25 +25,37 @@ public class Student {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "seats")
+    private String seats;
 
-    @Column(name = "contact")
-    private String contact;
+    @Column(name = "duration")
+    private String duration;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "fee")
+    private String fee;
 
-   /* @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
+    @OneToMany(mappedBy = "programs", cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
     private List<Registration> enrollmentList = new ArrayList<>();
 
     public void addEnrollment(Registration enrollment) {
         enrollmentList.add(enrollment);
-        enrollment.setStudent(this);
+        enrollment.setProgram(this);
     }
 
     public void removeEnrollment(Registration registration) {
         enrollmentList.remove(registration);
-        registration.setStudent(null);
-    }*/
+        registration.setProgram(null);
+    }
+
+
+  /*  @ManyToOne
+    @JoinColumn(name = "id")
+    private Admin admin;*/
+
+   /* @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "program"
+    )
+    private List<TransactionDetail> transactionDetails = new ArrayList<>();*/
 }

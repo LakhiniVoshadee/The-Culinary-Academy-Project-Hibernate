@@ -65,7 +65,11 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public Program find(String s) {
-        return null;
+        Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession();
+        Query<Program> query = session.createQuery("FROM Program WHERE id = :id", Program.class);
+        query.setParameter("id", s);
+        return query.uniqueResult();
+
     }
 
     @Override

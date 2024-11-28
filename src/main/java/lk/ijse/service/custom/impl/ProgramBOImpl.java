@@ -109,6 +109,17 @@ public class ProgramBOImpl implements ProgramBO {
 
     }
 
+    @Override
+    public ProgramDTO searchProgram(String id) throws Exception {
+        Program program = programDAO.search(id);
+        return new ProgramDTO(
+                program.getId(),
+                program.getName(),
+                program.getSeats(),
+                program.getDuration(),
+                program.getFee());
+    }
+
     private String incrementId(String lastId) {
         if (lastId == null) {
             return "CAl-0001";
