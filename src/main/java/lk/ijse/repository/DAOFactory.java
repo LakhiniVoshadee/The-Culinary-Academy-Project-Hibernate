@@ -16,12 +16,14 @@ public class DAOFactory {
         switch (daoTypes) {
             case StudentDAO:
                 return (T) new StudentDAOImpl();
-                case ProgramDAO:
-                    return (T) new ProgramDAOImpl();
-                    case UserDAO:
-                        return (T) new UserDAOImpl();
-                        case AdminDAO:
-                            return (T) new AdminDAOImpl();
+            case ProgramDAO:
+                return (T) new ProgramDAOImpl();
+            case UserDAO:
+                return (T) new UserDAOImpl();
+            case AdminDAO:
+                return (T) new AdminDAOImpl();
+            case RegistrationDAO:
+                return (T) new RegistrationDAOImpl();
 
 
             default:
@@ -35,6 +37,7 @@ public class DAOFactory {
         ProgramDAO,
         UserDAO,
         AdminDAO,
+        RegistrationDAO
 
     }
 }

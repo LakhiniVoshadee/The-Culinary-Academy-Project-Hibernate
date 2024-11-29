@@ -36,7 +36,7 @@ public class Student {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
+   /* @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,fetch = FetchType.EAGER,orphanRemoval = true)
     private List<Registration> enrollmentList = new ArrayList<>();
 
     public void addEnrollment(Registration enrollment) {
@@ -47,5 +47,5 @@ public class Student {
     public void removeEnrollment(Registration registration) {
         enrollmentList.remove(registration);
         registration.setStudent(null);
-    }
+    }*/
 }

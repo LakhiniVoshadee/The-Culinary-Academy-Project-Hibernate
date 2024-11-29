@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Registration {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "registration_id")
     private String id;
 

@@ -22,8 +22,7 @@ public class DAOFactory {
                         return (T) new UserDAOImpl();
                         case AdminDAO:
                             return (T) new AdminDAOImpl();
-                            case RegistrationDAO:
-                                return (T) new RegistrationDAOImpl();
+
 
             default:
                 return null;
@@ -36,6 +35,6 @@ public class DAOFactory {
         ProgramDAO,
         UserDAO,
         AdminDAO,
-        RegistrationDAO
+
     }
 }

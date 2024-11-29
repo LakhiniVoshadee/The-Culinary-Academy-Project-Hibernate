@@ -214,7 +214,7 @@ public class AdminRegistrationFormController implements Initializable {
     }
 
     private void setCellValueFactory() {
-        colRegId.setCellValueFactory(new PropertyValueFactory<>("registrationId"));
+        colRegId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
         colProgramId.setCellValueFactory(new PropertyValueFactory<>("programId"));
