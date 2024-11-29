@@ -16,8 +16,10 @@ import java.util.List;
 import static org.hibernate.loader.Loader.SELECT;
 
 public class RegistrationDAOImpl implements RegistrationDAO {
+    private Session session;
     @Override
     public void setSession(Session session) {
+        this.session = session;
 
     }
 
@@ -77,7 +79,10 @@ public class RegistrationDAOImpl implements RegistrationDAO {
 
     @Override
     public String generateNextRegistrationId() throws SQLException, ClassNotFoundException {
-        String SQL = SELECT "SELECT r.Regid FROM Registration r ORDER BY r.Regid DESC";
+        String sql = "SELECT R.id FROM Registration AS R ORDER BY R.id DESC";
+        Query idquery = session.createQuery(sql);
+        String regId = (String) idquery.setMaxResults(1).uniqueResult();
+        return regId;
 
     }
 }

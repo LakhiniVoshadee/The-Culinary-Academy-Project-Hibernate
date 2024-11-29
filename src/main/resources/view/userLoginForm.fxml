@@ -24,11 +24,6 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="807.0" layoutY="105.0">
-         <image>
-            <Image url="@../assests/images/Culinary%20Academy-modified.png" />
-         </image>
-      </ImageView>
       <Label layoutX="782.0" layoutY="415.0" prefHeight="27.0" prefWidth="262.0" text="Please enter your login details" textFill="WHITE">
          <font>
             <Font size="18.0" />
@@ -52,5 +47,10 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <ImageView fitHeight="171.0" fitWidth="176.0" layoutX="813.0" layoutY="132.0">
+         <image>
+            <Image url="@../assests/images/images/Culinary%20Academy-modified.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

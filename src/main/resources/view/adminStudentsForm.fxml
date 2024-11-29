@@ -5,15 +5,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pagingPane" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #c5bfb9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminStudentsFormController">
+<AnchorPane fx:id="pagingPane" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #c5bfb9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminStudentsFormController">
    <children>
-      <Pane layoutX="57.0" layoutY="80.0" opacity="0.33" prefHeight="660.0" prefWidth="392.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #4a4b4d; -fx-border-color: black;">
+      <Pane layoutX="98.0" layoutY="105.0" opacity="0.33" prefHeight="624.0" prefWidth="351.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: #4a4b4d; -fx-border-color: black;">
          <children>
             <Label layoutX="44.0" layoutY="136.0" prefHeight="17.0" prefWidth="304.0" text="Label" />
          </children>
@@ -23,98 +21,87 @@
             <Font name="System Bold" size="46.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="124.0" prefHeight="31.0" prefWidth="129.0" text="Student ID:">
+      <Label layoutX="128.0" layoutY="122.0" prefHeight="31.0" prefWidth="129.0" text="Student ID:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="221.0" prefHeight="31.0" prefWidth="156.0" text="Student Name:">
+      <Label layoutX="127.0" layoutY="228.0" prefHeight="31.0" prefWidth="156.0" text="Student Name:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="325.0" prefHeight="31.0" prefWidth="191.0" text="Student Address:">
+      <Label layoutX="127.0" layoutY="325.0" prefHeight="31.0" prefWidth="191.0" text="Student Address:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="546.0" prefHeight="31.0" prefWidth="156.0" text="Student Email:">
+      <Label layoutX="120.0" layoutY="537.0" prefHeight="31.0" prefWidth="156.0" text="Student Email:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="86.0" layoutY="432.0" prefHeight="31.0" prefWidth="171.0" text="Student Contact:">
+      <Label layoutX="120.0" layoutY="433.0" prefHeight="31.0" prefWidth="171.0" text="Student Contact:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="stName" layoutX="83.0" layoutY="263.0" prefHeight="41.0" prefWidth="316.0" promptText="Student Name" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
+      <TextField fx:id="stName" layoutX="127.0" layoutY="259.0" prefHeight="41.0" prefWidth="294.0" promptText="Student Name" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="stContact" layoutX="85.0" layoutY="483.0" prefHeight="41.0" prefWidth="316.0" promptText="Contact" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
+      <TextField fx:id="stContact" layoutX="127.0" layoutY="464.0" prefHeight="41.0" prefWidth="294.0" promptText="Contact" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></TextField>
-      <TextField fx:id="stEmail" layoutX="83.0" layoutY="582.0" prefHeight="41.0" prefWidth="316.0" promptText="Email" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
+      <TextField fx:id="stEmail" layoutX="124.0" layoutY="568.0" prefHeight="41.0" prefWidth="294.0" promptText="Email" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></TextField>
-      <TextField fx:id="stAddress" layoutX="83.0" layoutY="359.0" prefHeight="41.0" prefWidth="316.0" promptText="Address" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
+      <TextField fx:id="stAddress" layoutX="128.0" layoutY="356.0" prefHeight="41.0" prefWidth="294.0" promptText="Address" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></TextField>
-      <Pane layoutX="475.0" layoutY="98.0" opacity="0.33" prefHeight="555.0" prefWidth="712.0" style="-fx-background-color: #4a4b4d; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" />
-      <TableView fx:id="tblStudent" layoutX="504.0" layoutY="118.0" onMouseClicked="#tableClick" prefHeight="516.0" prefWidth="661.0">
+      <Pane layoutX="495.0" layoutY="110.0" opacity="0.33" prefHeight="497.0" prefWidth="732.0" style="-fx-background-color: #4a4b4d; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" />
+      <TableView fx:id="tblStudent" layoutX="530.0" layoutY="137.0" onMouseClicked="#tableClick" prefHeight="438.0" prefWidth="661.0">
         <columns>
-          <TableColumn fx:id="colStID" prefWidth="78.0" text="Student ID" />
-          <TableColumn fx:id="colStName" prefWidth="118.0" text="Student Name" />
-            <TableColumn fx:id="colStAddress" prefWidth="130.0" text="Student Address" />
-            <TableColumn fx:id="colStContact" prefWidth="136.0" text="Student Contact" />
-            <TableColumn fx:id="colStEmail" prefWidth="199.0" text="Student Email" />
+          <TableColumn fx:id="colStID" prefWidth="97.0" text="Student ID" />
+          <TableColumn fx:id="colStName" prefWidth="120.0" text="Student Name" />
+            <TableColumn fx:id="colStAddress" prefWidth="119.0" text="Student Address" />
+            <TableColumn fx:id="colStContact" prefWidth="144.0" text="Student Contact" />
+            <TableColumn fx:id="colStEmail" prefWidth="181.0" text="Student Email" />
         </columns>
       </TableView>
-      <Pane layoutX="573.0" layoutY="679.0" opacity="0.33" prefHeight="102.0" prefWidth="593.0" style="-fx-background-color: #4a4b4d; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: black;" />
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="655.0" layoutY="718.0" onAction="#btnUpdateOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="588.0" layoutY="656.0" onAction="#btnUpdateOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="813.0" layoutY="718.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Delete" textFill="WHITE">
+      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="730.0" layoutY="656.0" onAction="#btnDeleteOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" layoutX="978.0" layoutY="718.0" onAction="#btnClearOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="Clear" textFill="WHITE">
+      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="872.0" layoutY="656.0" onAction="#btnClearOnAction" prefHeight="46.0" prefWidth="112.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="CLEAR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="833.0" layoutY="729.0">
-         <image>
-            <Image url="@../assests/images/icons/trash.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="999.0" layoutY="729.0">
-         <image>
-            <Image url="@../assests/images/icons/refresh.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="stID" layoutX="83.0" layoutY="162.0" prefHeight="41.0" prefWidth="316.0" promptText="Student ID" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;">
+      <TextField fx:id="stID" layoutX="128.0" layoutY="162.0" prefHeight="41.0" prefWidth="294.0" promptText="Student ID" style="-fx-background-color: #dbd7d4; -fx-background-radius: 8; -fx-border-color: black; -fx-border-radius: 8;">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </TextField>
-      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="111.0" layoutY="662.0" onAction="#btnSaveOnAction" prefHeight="46.0" prefWidth="252.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="+ Add Students" textFill="WHITE">
+      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="159.0" layoutY="656.0" onAction="#btnSaveOnAction" prefHeight="46.0" prefWidth="210.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="+ Add Students" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <Label fx:id="studentIdValidate" layoutX="86.0" layoutY="203.0" prefHeight="25.0" prefWidth="316.0" textFill="RED" />
-      <Label fx:id="studentNameValidate" layoutX="85.0" layoutY="304.0" prefHeight="25.0" prefWidth="310.0" textFill="RED" />
-      <Label fx:id="studentAddressValidate" layoutX="86.0" layoutY="400.0" prefHeight="31.0" prefWidth="310.0" textFill="RED" />
-      <Label fx:id="studentContactValidate" layoutX="86.0" layoutY="523.0" prefHeight="31.0" prefWidth="310.0" textFill="RED" />
-      <Label fx:id="studentEmailValidate" layoutX="85.0" layoutY="626.0" prefHeight="25.0" prefWidth="310.0" textFill="RED" />
+      <Label fx:id="studentIdValidate" layoutX="129.0" layoutY="203.0" prefHeight="25.0" prefWidth="294.0" textFill="RED" />
+      <Label fx:id="studentNameValidate" layoutX="115.0" layoutY="300.0" prefHeight="25.0" prefWidth="310.0" textFill="RED" />
+      <Label fx:id="studentAddressValidate" layoutX="130.0" layoutY="400.0" prefHeight="25.0" prefWidth="300.0" textFill="RED" />
+      <Label fx:id="studentContactValidate" layoutX="129.0" layoutY="505.0" prefHeight="25.0" prefWidth="294.0" textFill="RED" />
+      <Label fx:id="studentEmailValidate" layoutX="115.0" layoutY="609.0" prefHeight="25.0" prefWidth="300.0" textFill="RED" />
    </children>
 </AnchorPane>

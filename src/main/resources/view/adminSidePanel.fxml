@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,17 +12,15 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminSidePanelController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #c5bfb9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminSidePanelController">
    <children>
-      <Pane fx:id="pagingPane" layoutX="242.0" prefHeight="800.0" prefWidth="1300.0" />
-      <VBox alignment="TOP_CENTER" prefHeight="801.0" prefWidth="242.0" spacing="60.0" style="-fx-background-color: #c5bfb9;">
+      <Pane fx:id="pagingPane" cache="true" layoutX="242.0" prefHeight="800.0" prefWidth="1300.0" style="-fx-padding: 10; -fx-background-color: black;">
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets></Pane>
+      <VBox alignment="TOP_CENTER" layoutX="-2.0" layoutY="124.0" prefHeight="573.0" prefWidth="242.0" spacing="60.0" style="-fx-background-color: #c5bfb9;">
          <children>
-            <ImageView fitHeight="94.0" fitWidth="111.0">
-               <image>
-                  <Image url="@../assests/images/Culinary%20Academy-modified.png" />
-               </image>
-            </ImageView>
-            <JFXButton fx:id="btnDashBoard" buttonType="RAISED" onAction="#btnDashBoardOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Dashboard" textFill="WHITE">
+            <JFXButton fx:id="btnDashBoard" buttonType="RAISED" onAction="#btnDashBoardOnAction" prefHeight="41.0" prefWidth="125.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -42,7 +41,7 @@
                   </RadialGradient>
                </ripplerFill>
             </JFXButton>
-            <JFXButton fx:id="btnRegistration" buttonType="RAISED" onAction="#btnRegistrationOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Registration" textFill="WHITE">
+            <JFXButton fx:id="btnUsers" buttonType="RAISED" onAction="#btnUsersOnAction" prefHeight="39.0" prefWidth="127.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Users" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -63,7 +62,7 @@
                   </RadialGradient>
                </ripplerFill>
             </JFXButton>
-            <JFXButton fx:id="btnPayment" buttonType="RAISED" onAction="#btnPaymentOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Payment" textFill="WHITE">
+            <JFXButton fx:id="btnStudents" buttonType="RAISED" onAction="#btnStudentsOnAction" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Students" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -84,7 +83,7 @@
                   </RadialGradient>
                </ripplerFill>
             </JFXButton>
-            <JFXButton fx:id="btnStudents" buttonType="RAISED" onAction="#btnStudentsOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Students" textFill="WHITE">
+            <JFXButton fx:id="btnPrograms" buttonType="RAISED" onAction="#btnProgramsOnAction" prefHeight="42.0" prefWidth="134.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Programs" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -105,7 +104,7 @@
                   </RadialGradient>
                </ripplerFill>
             </JFXButton>
-            <JFXButton fx:id="btnPrograms" buttonType="RAISED" onAction="#btnProgramsOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Programs" textFill="WHITE">
+            <JFXButton fx:id="btnRegistration" buttonType="RAISED" onAction="#btnRegistrationOnAction" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Registration" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -126,28 +125,7 @@
                   </RadialGradient>
                </ripplerFill>
             </JFXButton>
-            <JFXButton fx:id="btnUsers" buttonType="RAISED" onAction="#btnUsersOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Users" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <ripplerFill>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.6052631735801697" green="0.6052631735801697" blue="0.6052631735801697" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </RadialGradient>
-               </ripplerFill>
-            </JFXButton>
-            <JFXButton fx:id="btnLogOut" buttonType="RAISED" onAction="#btnLogOutOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Logout" textFill="WHITE">
+            <JFXButton fx:id="btnPayment" buttonType="RAISED" onAction="#btnPaymentOnAction" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #4d4845; -fx-background-radius: 10;" text="Payment" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -170,5 +148,31 @@
             </JFXButton>
          </children>
       </VBox>
+      <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="48.0" layoutY="719.0" onAction="#btnLogOutOnAction" prefHeight="48.0" prefWidth="146.0" style="-fx-background-color: #2D2A29; -fx-background-radius: 10;" text="LOGOUT" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6052631735801697" green="0.6052631735801697" blue="0.6052631735801697" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+      <ImageView fitHeight="69.0" fitWidth="107.0" layoutX="62.0" layoutY="20.0">
+         <image>
+            <Image url="@../assests/images/images/Culinary%20Academy-modified.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

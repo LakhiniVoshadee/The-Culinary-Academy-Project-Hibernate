@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #c5bfb9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminHomeFormController">
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #c5bfb9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminHomeFormController">
    <children>
-      <Text layoutX="297.0" layoutY="107.0" stroke="#9a9a9a" strokeType="OUTSIDE" strokeWidth="5.0" text="Dashboard" wrappingWidth="273.13671875">
+      <ImageView fitHeight="734.0" fitWidth="1222.0" layoutX="37.0" layoutY="29.0" opacity="0.21">
+         <image>
+            <Image url="@../assests/images/images/medium-shot-professional-chefs-working-together.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="132.0" layoutY="122.0" stroke="#9a9a9a" strokeType="OUTSIDE" strokeWidth="5.0" text="Dashboard" wrappingWidth="273.13671875">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
@@ -54,11 +61,11 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label fx:id="lblTime" alignment="CENTER" layoutX="919.0" layoutY="68.0" prefHeight="103.0" prefWidth="234.0" text="TIME" textAlignment="CENTER" textFill="#545454">
+      <Label fx:id="lblTime" alignment="CENTER" layoutX="974.0" layoutY="68.0" prefHeight="103.0" prefWidth="264.0" text="TIME" textAlignment="CENTER" textFill="#545454">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Label>
-      <Label fx:id="lblDate" alignment="CENTER" layoutX="635.0" layoutY="68.0" prefHeight="103.0" prefWidth="234.0" text="DATE" textFill="#545454">
+      <Label fx:id="lblDate" alignment="CENTER" layoutX="590.0" layoutY="68.0" prefHeight="103.0" prefWidth="332.0" text="DATE" textFill="#545454">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Label>

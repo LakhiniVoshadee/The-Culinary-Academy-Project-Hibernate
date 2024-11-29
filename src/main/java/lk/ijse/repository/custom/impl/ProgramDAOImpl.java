@@ -54,8 +54,8 @@ public class ProgramDAOImpl implements ProgramDAO {
     @Override
     public String getLastId() throws Exception {
         try (Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession()) {
-            String sql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
-            Query<String> query = session.createQuery(sql, String.class);
+            String hql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
+            Query<String> query = session.createQuery(hql, String.class);
             query.setMaxResults(1);
             return query.uniqueResult();
         } catch (Exception e) {
@@ -71,16 +71,16 @@ public class ProgramDAOImpl implements ProgramDAO {
 
     @Override
     public int programCount() {
-        String sql = "SELECT COUNT(P.id) FROM Program AS P";
-        Query query = session.createQuery(sql);
+        String hql = "SELECT COUNT(P.id) FROM Program AS P";
+        Query query = session.createQuery(hql);
         Long count = (Long) query.getSingleResult();
         return Math.toIntExact(count);
     }
 
     @Override
     public String generateNextId() {
-        String sql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
-        Query idquery = session.createQuery(sql);
+        String hql = "SELECT P.id FROM Program AS P ORDER BY P.id DESC";
+        Query idquery = session.createQuery(hql);
         String programId = (String) idquery.setMaxResults(1).uniqueResult();
         return programId;
     }

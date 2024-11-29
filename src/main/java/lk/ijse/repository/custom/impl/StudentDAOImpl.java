@@ -58,8 +58,8 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public String getLastId() throws Exception {
         try (Session session = SessionFactoryConfig.getSessionFactoryConfig().getSession()) {
-            String sql = "SELECT S.id FROM Student AS S ORDER BY S.id DESC";
-            Query<String> query = session.createQuery(sql, String.class);
+            String hql = "SELECT S.id FROM Student AS S ORDER BY S.id DESC";
+            Query<String> query = session.createQuery(hql, String.class);
             query.setMaxResults(1);
             return query.uniqueResult();
         } catch (Exception e) {
@@ -71,8 +71,8 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public int studentCount() {
-        String sql = "SELECT COUNT(S.id) FROM Student AS S";
-        Query query = session.createQuery(sql);
+        String hql = "SELECT COUNT(S.id) FROM Student AS S";
+        Query query = session.createQuery(hql);
         Long count = (Long) query.getSingleResult();
         return Math.toIntExact(count);
     }
@@ -80,8 +80,8 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public String generateNextId() {
 
-        String sql = "SELECT S.id FROM Student AS S ORDER BY S.id DESC";
-        Query idquery = session.createQuery(sql);
+        String hql = "SELECT S.id FROM Student AS S ORDER BY S.id DESC";
+        Query idquery = session.createQuery(hql);
         String studentId = (String) idquery.setMaxResults(1).uniqueResult();
         return studentId;
     }
