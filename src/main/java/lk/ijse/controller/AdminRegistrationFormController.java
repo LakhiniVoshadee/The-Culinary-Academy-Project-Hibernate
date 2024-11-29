@@ -104,6 +104,7 @@ public class AdminRegistrationFormController implements Initializable {
             ProgramDTO programDto = programBO.searchProgramById(selectedProgramId);
             if (programDto != null) {
                 txtProgramName.setText(programDto.getName());
+                txtTotalFee.setText(programDto.getFee());
 
 
             }
